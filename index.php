@@ -1,6 +1,6 @@
 <?php
 
-include "functions.php";
+//include "functions.php";
 //$string = "Hello World";
 //$productName = "Rudeniniai Batai Rudi";
 //$productDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquam vitae velit id congue. Vivamus sed lacus pulvinar, iaculis purus et, aliquet mauris. Vivamus metus ipsum, tincidunt ut enim et, porttitor tempus quam. Mauris quam arcu, bibendum vel dictum ut, auctor non enim.";

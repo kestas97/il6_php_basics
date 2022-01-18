@@ -66,8 +66,8 @@ $counter = 0;
 foreach($products as $product) {
         echo '<img width="60" src="' . $product['img'] . '" />';
         echo '<h2>' . $product["name"] . '</h2>';
-        if($product['special_price']){
-            echo '<del>' .$product['special_price']. '</del>' .$product['special_price'];
+        if(isset($product['special_price'])){
+            echo '<del>' .$product['special_price']. '</del>' .$product['price'];
         }else {
             echo $product['price'];
 
