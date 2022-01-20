@@ -1,14 +1,17 @@
 <?php
-
+//funkcija isivalyti emaila
 function clearEmail($email){
     return trim(strtolower($email));
 }
+//patikrinau ar emailas validus
 function isEmailValid($email){
     return strpos($email, '@') !== false;
 }
+//pasitikrinau ar passwordas valydus ir pass1 = pass2
 function isPasswordValid($pass1, $pass2){
     return $pass1 === $pass2 && strlen($pass1) > 8;
 }
+//funkcija, kad rasytu i csv
 function writeToCsv($data, $fileName){
     $file = fopen($fileName, 'a');
     foreach ($data as $element){
@@ -17,7 +20,7 @@ function writeToCsv($data, $fileName){
     fclose($file);
 }
 
-
+//pasitikrinau ar useriai unikalus
 function isValueUniq($value, $key){
     $users = readFromCsv('users.csv');
     foreach ($users as $user){
@@ -27,7 +30,7 @@ function isValueUniq($value, $key){
     }
     return true;
 }
-
+//skaityti is csv
 function readFromCsv($fileName){
     $data = [];
     $file = fopen($fileName, 'r');
@@ -40,7 +43,7 @@ function readFromCsv($fileName){
     fclose($file);
     return $data;
 }
-
+//generuoti nick name
 function generateNick($first, $last){
     return strtolower($first.$last.rand(1, 8));
 
