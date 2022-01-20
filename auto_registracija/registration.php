@@ -8,19 +8,27 @@ $password2 = $_POST['password2'];
 $carNumber = $_POST['car_number'];
 $email = clearEmail($email);
 
-if(
+//echo $firstName.$lastName.$email.$password.$password2.$carNumber;
+
+if( isValueUniq($email, 2) &&
     isPasswordValid($password, $password2) &&
     isEmailValid($email)
+){
+    $password = md5($password).'druska';
+    $password = md5($password);
+    $nickName = generateNick($firstName, $lastName);
 
-
-);
 
 $data = [];
 
-$data [] = [$firstName, $lastName, $email, $password, $carNumber];
+$data [] = [$firstName, $lastName, $email, $password, $carNumber, $nickName];
 writeToCsv($data, 'users.csv');
+echo 'sekminga registracija';
+}else{
+    echo 'patikrink emaila';
+}
 
-print_r($_POST);
+
 
 
 

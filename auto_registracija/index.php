@@ -10,7 +10,7 @@
     <input type="email" name="email" placeholder="el.paštas"><br>
     <input type="password" name="password1" placeholder="*******"><br>
     <input type="password" name="password2" placeholder="*******"><br>
-    <input type="label" name="car_number" placeholder="Auto.Val.Numeris"><br>
+    <input type="text" name="car_number" placeholder="Auto.Val.Numeris"><br>
     <input type="submit" value="Registruotis">
 
 </form>
