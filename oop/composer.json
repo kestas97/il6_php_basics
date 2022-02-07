@@ -1,0 +1,17 @@
+{
+    "name": "kestas/skelbimai",
+    "description": "kestas/skelbimai",
+    "type": "project",
+    "authors": [
+        {
+            "name": "kestas97",
+            "email": "kestutissukys97@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "": "app/code"
+        }
+    },
+    "require": {}
+}

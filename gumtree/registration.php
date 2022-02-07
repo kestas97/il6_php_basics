@@ -3,7 +3,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbName = 'auto_plus';
 
 try {
@@ -23,16 +23,19 @@ $cities = $rez->fetchAll();
 
 ?>
 
-    <form action="submitaduser.php" method="post">
-        <input name="name" type="text"><br>
-        <input name="email" type="email"><br>
-        <input name="phone" type="text"><br>
-        <input name="password" type="password"><br>
+    <form action="submitad.php" method="post">
+        <input name="name" type="text" placeholder="vardas"><br>
+        <input name="email" type="email" placeholder="email"><br>
+        <input name="phone" type="text" placeholder="numeris"><br>
+        <input name="password" type="password" placeholder="********"><br>
         <select name="city">
             <?php foreach ($cities as $city){
                 echo '<option value="'.$city['id'].'">'.$city['name'].'</option>';
             } ?>
         </select>
+        <br>
+
+        <input type="submit" value="Registruotis">
     </form>
 <?php include 'parts/footer.php'; ?>
 
