@@ -1,85 +1,69 @@
 <?php
 namespace Controller;
-use Couchbase\UpsertUserOptions;
+
+use Helper\DBHelper;
 use Helper\FormHelper;
 use Helper\Validator;
-use Model\User as UserModel;
-use Model\City;
 use Helper\Url;
-class User
-
-
+use Model\City;
+use Model\User as UserModel;
+use Core\AbstractController;
+class User extends AbstractController
 {
-    public function show($id)
+    public function index()
     {
-        echo 'User controller ID: '. $id;
+        $this->data['users'] = UserModel::getAllUsers();
+        $this->render('user/list');
     }
 
-    public function register(){
-        //$cities = city::getCities();
-       $form = new FormHelper('user/create', 'POST');
-       $form->input([
-           'name' => 'name',
-           'type' => 'text',
-           'placeholder' => 'Vardas'
-       ]);
+
+    public function show($id)
+    {
+        echo 'User controller ID: ' . $id;
+    }
+
+    public function register()
+    {
+
+        $form = new FormHelper('user/create', 'POST');
 
         $form->input([
-            "name"=>"last_name",
-            "type"=>"text",
-            "placeholder"=>"Last name"
+            'name' => 'name',
+            'type' => 'text',
+            'placeholder' => 'Vardas'
         ]);
-
+        $form->input([
+            'name' => 'last_name',
+            'type' => 'text',
+            'placeholder' => 'Pavarde'
+        ]);
+        $form->input([
+            'name' => 'phone',
+            'type' => 'text',
+            'placeholder' => '+3706*******'
+        ]);
         $form->input([
             'name' => 'email',
             'type' => 'email',
-            'placeholder' => 'email'
+            'placeholder' => 'Email'
         ]);
-
-        $form->input([
-            "name"=>"phone",
-            "type"=>"text",
-            "placeholder"=>"Telefonas"
-        ]);
-
         $form->input([
             'name' => 'password',
             'type' => 'password',
-            'placeholder' => 'password'
+            'placeholder' => '* * * * * *'
         ]);
-
-
         $form->input([
             'name' => 'password2',
             'type' => 'password',
-            'placeholder' => 'password'
+            'placeholder' => '* * * * * *'
         ]);
 
-//        $cities = City::getCities();
-//        $options = [];
-//        foreach ($cities as $city) {
-//            $key = $city->getId();
-//            $options[$key] = $city->getName();
-//        }
-//        $form->select([
-//            'name' => 'city_id',
-//            'options' => City::getCities()
-//        ]);
-//
-//
-//
-//        $form->input([
-//            'name' => 'create',
-//            'type' => 'submit',
-//            'placeholder' => 'register'
-//        ]);
         $cities = City::getCities();
         $options = [];
         foreach ($cities as $city) {
-            $key = $city->getId();
-            $options[$key] = $city->getName();
+            $id = $city->getId();
+            $options[$id] = $city->getName();
         }
-        //print_r($cities);
         $form->select(['name' => 'city_id', 'options' => $options]);
         $form->input([
             'name' => 'create',
@@ -87,86 +71,8 @@ class User
             'value' => 'register'
         ]);
 
-
-
-        echo $form->getForm();
-    }
-    public function login()
-    {
-        $form = new FormHelper('user/check', 'POST');
-        $form->input([
-            'name' => 'email',
-            'type' => 'email',
-            'placeholder' => 'email@mail.com'
-        ]);
-        $form->input([
-            'name' => 'password',
-            'type' => 'password',
-            'placeholder' => 'Password'
-        ]);
-        $form->input([
-            'name' => 'create',
-            'type' => 'submit',
-            'value' => 'login'
-        ]);
-
-        echo $form->getForm();
-    }
-
-    public function create()
-    {
-        $passMatch = Validator::checkPassword($_POST['password'], $_POST['password2']);
-        $isEmailValid = Validator::checkEmail($_POST['email']);
-        $isEmailUniq = UserModel::emailUniq($_POST['email']);
-
-
-        if ($passMatch && $isEmailValid && $isEmailUniq) {
-            $user = new UserModel();
-
-            $user->setName($_POST["name"]);
-            $user->setLastName($_POST["last_name"]);
-            $user->setEmail($_POST["email"]);
-            $user->setPhone($_POST["phone"]);
-            $user->setPassword(md5($_POST["password"]));
-            $user->setCityId($_POST["city_id"]);
-
-            $user->save();
-
-            Url::redirect('user/login');
-        } else {
-            echo "Patikrinkite duomenis";
-        }
-
-        print_r($_POST);
-    }
-
-
-
-
-
-
-    public function check()
-    {
-        $email = $_POST['email'];
-        $password = md5($_POST['password']);
-        $userId = UserModel::checkLoginCredentionals($email, $password);
-        if ($userId){
-            $user = new UserModel();
-            $user->load($userId);
-            $_SESSION['user_id'] = $userId;
-            $_SESSION['logged'] = true;
-            $_SESSION['user'] = $user;
-            Url::redirect('/');
-            //$user->getCity()->getName;
-//            echo "<pre>";
-//            print_r($user);
-        }else{
-            Url::redirect('user/login');
-        }
-    }
-    public function logout()
-    {
-        session_destroy();
+        $this->data['form'] = $form->getForm();
+        $this->render('user/register');
     }
 
     public function edit()
@@ -231,11 +137,11 @@ class User
         $form->input([
             'name' => 'create',
             'type' => 'submit',
-            'value' => 'edit'
+            'value' => 'Edit'
         ]);
 
-        echo $form->getForm();
-
+        $this->data['form'] = $form->getForm();
+        $this->render('user/edit');
 
     }
 
@@ -255,7 +161,7 @@ class User
         }
 
         if ($user->getEmail() != $_POST['email']) {
-            if (Validator::checkEmail($_POST['email']) && UserModel::emailUnic($_POST['email'])) {
+            if (Validator::checkEmail($_POST['email']) && UserModel::isValueUnic('email', $_POST['email'], 'users')) {
                 $user->setEmail($_POST['email']);
             }
         }
@@ -264,7 +170,70 @@ class User
         Url::redirect('user/edit');
     }
 
+    public function login()
+    {
+        $form = new FormHelper('user/check', 'POST');
+        $form->input([
+            'name' => 'email',
+            'type' => 'email',
+            'placeholder' => 'Email'
+        ]);
+        $form->input([
+            'name' => 'password',
+            'type' => 'password',
+            'placeholder' => '* * * * * *'
+        ]);
+        $form->input([
+            'name' => 'login',
+            'type' => 'submit',
+            'value' => 'login'
+        ]);
+
+        $this->data['form'] = $form->getForm();
+        $this->render('user/login');
+    }
+
+    public function create()
+    {
+        $passMatch = Validator::checkPassword($_POST['password'], $_POST['password2']);
+        $isEmailValid = Validator::checkEmail($_POST['email']);
+        $isEmailUnic = UserModel::isValuelUnic('email', $_POST['email'], 'users');
+        if ($passMatch && $isEmailValid && $isEmailUnic) {
+            $user = new UserModel();
+            $user->setName($_POST['name']);
+            $user->setLastName($_POST['last_name']);
+            $user->setPhone($_POST['phone']);
+            $user->setPassword(md5($_POST['password']));
+            $user->setEmail($_POST['email']);
+            $user->setCityId($_POST['city_id']);
+            $user->save();
+            Url::redirect('user/login');
+        } else {
+            echo 'Patikrinkite duomenis';
+        }
+    }
+
+    public function check()
+    {
+        $email = $_POST['email'];
+        $password = md5($_POST['password']);
+        $userId = UserModel::checkLoginCredentionals($email, $password);
+        if ($userId) {
+            $user = new UserModel();
+            $user->load($userId);
+            $_SESSION['logged'] = true;
+            $_SESSION['user_id'] = $userId;
+            $_SESSION['user'] = $user;
+            Url::redirect('/');
+        } else {
+            Url::redirect('user/login');
+        }
+    }
+
+    public function logout()
+    {
+        session_destroy();
+    }
 
 
 }
-

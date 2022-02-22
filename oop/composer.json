@@ -13,5 +13,7 @@
             "": "app/code"
         }
     },
-    "require": {}
+    "require": {
+        "psr/log": "^1.1"
+    }
 }

@@ -7,6 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Controller\\Catalog' => $baseDir . '/app/code/Controller/Catalog.php',
-    'Controller\\User' => $baseDir . '/app/code/Controller/User.php',
 );

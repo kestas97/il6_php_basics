@@ -2,22 +2,28 @@
 
 namespace Helper;
 use \PDO;
+use Helper\Logger;
+
 class DBHelper
 {
     private $conn;
 
     private $sql;
 
+
+
     public function __construct()
     {
         $this->sql = '';
 
+
         try {
             $this->conn = new \PDO("mysql:host=" . SERVERNAME . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
             $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            //echo "Connected successfully";
+
         } catch (\PDOException $e) {
-            //echo "Connection failed: " . $e->getMessage();
+            Logger::log("Connection failed " . $e->getMessage());
+
         }
     }
 
@@ -57,19 +63,22 @@ class DBHelper
 
     public function get()
     {
-        $rez = $this->conn->query($this->sql);
+        $rez = $this->exec();
         return $rez->fetchAll();
     }
 
     public function exec()
     {
-        $this->conn->query($this->sql);
+        if (DEBUG_MODE){
+            Logger::log($this->sql);
+        }
+        return $this->conn->query($this->sql);
     }
 
 
     public function getOne()
     {
-        $rez = $this->conn->query($this->sql);
+        $rez = $this->exec();
         $data = $rez->fetchAll();
 
         if (!empty($data)){
@@ -102,8 +111,21 @@ class DBHelper
         return $this;
     }
 
-    public function limit($nummber){
-        $this->sql .= 'LIMIT' . $nummber;
+    public function limit($number){
+        $this->sql .= ' LIMIT ' . $number;
+        return $this;
+    }
+
+    public function orderBy($column, $direction)
+    {
+        $this->sql .= " ORDER BY " . $column. " " . $direction;
+        return $this;
+    }
+
+    public function offSet($number)
+    {
+        $this->sql .= ' OFFSET ' . $number;
+        return $this;
     }
 
 }

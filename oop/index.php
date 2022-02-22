@@ -6,35 +6,41 @@ session_start();
 
 if (isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] !== '/') {
     $path = trim($_SERVER['PATH_INFO'], '/');
-    echo '<pre>';
+    //echo '<pre>';
     $path = explode('/', $path);
-    print_r($path);
+   // print_r($path);
 
     $class = ucfirst($path[0]);
-    $method = $path[1];
-    //echo 'app/code/Controller/'.$class.'.php';
+    if (isset($path[1])) {
+        $method = $path[1];
+    } else {
+        $method = 'index';
+    }
 
-//    $obj = new $class();
+
+
     $class = '\Controller\\' . $class;
     if (class_exists($class)) {
         $obj = new $class();
         if (method_exists($obj, $method)) {
             if (isset($path[2])) {
-                $obj->$method($path);
+                $obj->$method($path[2]);
             } else {
                 $obj->$method();
             }
 
         } else {
-            echo '404';
+            $error = new \Controller\Error();
+            $error->error404();
         }
     } else {
-        echo '404';
+        $error = new \Controller\Error();
+        $error->error404();
     }
 
 } else {
-    echo '<h1>Titulinis</h1>';
-    print_r($_SESSION);
+
+    $obj = new \Controller\Home();
+    $obj->index();
 }
 
-// domain.lt/controlleris/methodas/params//domain.lt/controlleris//methodos/poroms

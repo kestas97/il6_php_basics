@@ -1,13 +1,15 @@
 <?php
 
-namespace Model;
+namespace  Model;
 
 use Helper\DBHelper;
 use Helper\FormHelper;
 use Model\City;
-class User
+use Core\AbstractModel;
+
+class User extends AbstractModel
 {
-    private $id;
+
 
     private $name;
 
@@ -23,11 +25,30 @@ class User
 
     private $city;
 
+    private $active;
 
-    public function getId()
+    public function __construct()
     {
-        return $this->id;
+        $this->table = 'user';
     }
+
+    public function assignData()
+    {
+        $this->data = [
+            'name' => $this->name,
+            'last_name' => $this->lastName,
+            'email' => $this->email,
+            'password' => $this->password,
+            'phone' => $this->phone,
+            'city_id' => $this->cityId
+        ];
+    }
+    //private $loginAttempts;
+
+//    public function getId()
+//    {
+//        return $this->id;
+//    }
 
     public function getName()
     {
@@ -84,59 +105,32 @@ class User
         return $this->cityId;
     }
 
-    public function getCity(){
+    public function getCity()
+    {
         return $this->city;
     }
+
 
     public function setCityId($id)
     {
         $this->cityId = $id;
     }
 
-    public function save()
+    public function isActive()
     {
-        if (!isset($this->id)) {
-            $this->create();
-        } else {
-            $this->update();
-        }
+        return $this->active;
     }
 
-    private function create()
+    public function setActive($active)
     {
-        $data = [
-            'name' => $this->name,
-            'last_name' => $this->lastName,
-            'email' => $this->email,
-            'password' => $this->password,
-            'phone' => $this->phone,
-            'city_id' => $this->cityId
-        ];
-
-        $db = new DBHelper();
-        $db->insert('users', $data)->exec();
+        $this->active = $active;
     }
 
-    private function update()
-    {
-        $data = [
-            'name' => $this->name,
-            'last_name' => $this->lastName,
-            'email' => $this->email,
-            'password' => $this->password,
-            'phone' => $this->phone,
-            'city_id' => $this->cityId
-        ];
-
-        $db = new DBHelper();
-        $db->update('users', $data)->where('id', $this->id)->exec();
-
-    }
 
     public function load($id)
     {
         $db = new DBHelper();
-        $data = $db->select()->from('users')->where('id',$id)->getOne();
+        $data = $db->select()->from('users')->where('id', $id)->getOne();
         $this->id = $data['id'];
         $this->name = $data['name'];
         $this->lastName = $data['last_name'];
@@ -149,22 +143,14 @@ class User
         return $this;
     }
 
-    public function delete()
-    {
-        $db = new DBHelper();
-        $db->delete()->from('users')->where('id', $this->id)->exec();
-    }
 
 
-    public static function emailUniq($email)
-    {
-        $db = new DBHelper();
-
-        $rez = $db->select()->from('users')->where('email', $email)->get();
-
-        return empty($rez);
-        //return $rez;
-    }
+//    public static function emailUnic($email)
+//    {
+//        $db = new DBHelper();
+//        $rez = $db->select()->from('users')->where('email', $email)->get();
+//        return empty($rez);
+//    }
 
     public static function checkLoginCredentionals($email, $pass)
     {
@@ -176,9 +162,27 @@ class User
             ->andWhere('password', $pass)
             ->getOne();
 
-
-
-        return isset($rez['id']) ? $rez['id'] : false;
+        if (isset($rez['id'])) {
+            return $rez['id'];
+        } else {
+            return false;
+        }
+        //return isset($rez['id']) ? $rez['id'] : false;
     }
+
+    public static function getAllUsers()
+    {
+        $db = new DBHelper();
+        $data = $db->select('id')->from('users')->get();
+        $users = [];
+        foreach ($data as $element) {
+            $user = new User();
+            $user->load($element['id']);
+            $users[] = $user;
+        }
+
+        return $users;
+    }
+
 
 }
