@@ -184,16 +184,12 @@ class Catalog extends AbstractController
         public function show($slug)
     {
         $ad = new Ad();
-        $ad->load($slug, 'slug');
+        $ad->loadBySlug($slug);
         $adId = $ad->getId();
-        $form = new FormHelper('catalog/addcomment' .$adId, 'POST');
+        $form = new FormHelper('catalog/addcomment/?id=' . $adId . '&back=' . $slug, 'POST');
 
-        $form->input([
-            'name' => 'slug',
-            'type' => 'hidden',
-            'value' => $slug
-        ]);
-        $form->textArea('comment', null, 'Add comment', 'comment', 255);
+
+        $form->textArea('comment', 'Komentaras');
         $form->input([
             'name' => 'submit',
             'type' => 'submit',
@@ -201,40 +197,47 @@ class Catalog extends AbstractController
         ]);
 
         if (!$ad->isActive()){
+            Logger::log($ad->isActive());
             Url::redirect('catalog/show');
+
 
         }
 
-        $this->data['ad'] = $ad->loadBySlug($slug);
+
         $views = $ad->getViews();
         $views = $views+1;
         $ad->setViews($views);
         $ad->save();
+        $this->data['ad'] = $ad;
         if($this->data['ad']){
+            $this->data['comments'] = Comment::getAdComments($ad->getId());
+            $this->data['comment_box'] = $form->getForm();
             $this->render('catalog/show');
+
         }else{
-            echo '404';
+            $error = new Error();
+            $error->error404();
         }
     }
 
-    public function addComment($id)
+    public function addComment()
     {
         if (!isset($_POST['comment'])){
-            Url::redirect('catalog/show' .$_POST['slug']);
+            Url::redirect('catalog/show' .$_GET['back']);
         }
         if (!isset($_SESSION['user_id'])){
-            $_SESSION['comment_error'] = 'Turite prisijungti, kad komentuti';
-            Url::redirect('catalog/show/' .$_POST['slug']);
+
+            Url::redirect('catalog/show/' .$_GET['back']);
         }
 
         $comment = new Comment();
         $comment->setComment($_POST['comment']);
-        $comment->setAdId($id);
+        $comment->setAdId($_GET['id']);
         $comment->setUserId($_SESSION['user_id']);
         $comment->save();
 
-        Url::redirect('catalog/show/' .$_POST['slug']);
-        
+        Url::redirect('catalog/show/' .$_GET['back']);
+
     }
 
 

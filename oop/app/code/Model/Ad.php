@@ -4,6 +4,7 @@ namespace Model;
 
 use Helper\DBHelper;
 use Core\AbstractModel;
+use Helper\Logger;
 
 class Ad extends AbstractModel
 {
@@ -278,7 +279,9 @@ class Ad extends AbstractModel
             $this->views = $ad['views'];
         }
 
+        Logger::log($ad['active'] .'belekas');
         return $this;
+
     }
 
     public function loadBySlug($slug)

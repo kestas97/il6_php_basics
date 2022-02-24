@@ -4,6 +4,7 @@ namespace Model;
 
 use Core\AbstractModel;
 use Helper\DBHelper;
+use Helper\Logger;
 
 class Comment extends AbstractModel
 {
@@ -43,9 +44,19 @@ class Comment extends AbstractModel
         $this->adId = $adId;
     }
 
-    public function getCreated()
+    public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    public function getUser()
+    {
+        return new User($this->userId);
+    }
+
+    public function getAd()
+    {
+        return new Ad($this->adId);
     }
 
     protected function assignData()
@@ -53,7 +64,7 @@ class Comment extends AbstractModel
         $this->data = [
           'comment' => $this->comment,
           'user_id' => $this->userId,
-          'ad_id' => $this->adId
+          'ad_id' => $this->adId,
         ];
     }
 
@@ -61,11 +72,11 @@ class Comment extends AbstractModel
     {
         $db = new DBHelper();
         $data = $db->select()->from(self::TABLE)->where("id", $id)->getOne();
-        if (!empty($comment)) {
-            $this->comment = $comment['comment'];
-            $this->adId = $comment['ad_id'];
-            $this->userId = $comment['user_id'];
-            $this->createdAt = $comment['created_at'];
+        if (!empty($data)) {
+            $this->comment = $data['comment'];
+            $this->adId = $data['ad_id'];
+            $this->userId = $data['user_id'];
+            $this->createdAt = $data['created_at'];
         }
         return $this;
     }
@@ -89,12 +100,17 @@ class Comment extends AbstractModel
     {
         $db = new DBHelper();
         $data = $db->select()->from(self::TABLE)->where('ad_id', $adId)->orderBy('created_at', 'DESC')->get();
+        $comments = [];
+        Logger::log(print_r($data, true));
 
         foreach ($data as $element) {
             $comment = new Comment();
             $comment->load($element['id']);
+            Logger::log(print_r($comment, true));
+            Logger::log($element['id']);
             $comments[] = $comment;
         }
+        Logger::log(print_r($comments, true));
         return $comments;
     }
 
