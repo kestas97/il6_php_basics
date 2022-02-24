@@ -3,7 +3,9 @@
 namespace Controller;
 use Core\AbstractController;
 use Helper\FormHelper;
+use Helper\Logger;
 use Helper\Url;
+use Model\Comment;
 use Model\Ad;
 use Model\User as UserModel;
 class Catalog extends AbstractController
@@ -182,6 +184,27 @@ class Catalog extends AbstractController
         public function show($slug)
     {
         $ad = new Ad();
+        $ad->load($slug, 'slug');
+        $adId = $ad->getId();
+        $form = new FormHelper('catalog/addcomment' .$adId, 'POST');
+
+        $form->input([
+            'name' => 'slug',
+            'type' => 'hidden',
+            'value' => $slug
+        ]);
+        $form->textArea('comment', null, 'Add comment', 'comment', 255);
+        $form->input([
+            'name' => 'submit',
+            'type' => 'submit',
+            'value' => 'Comment'
+        ]);
+
+        if (!$ad->isActive()){
+            Url::redirect('catalog/show');
+
+        }
+
         $this->data['ad'] = $ad->loadBySlug($slug);
         $views = $ad->getViews();
         $views = $views+1;
@@ -192,6 +215,26 @@ class Catalog extends AbstractController
         }else{
             echo '404';
         }
+    }
+
+    public function addComment($id)
+    {
+        if (!isset($_POST['comment'])){
+            Url::redirect('catalog/show' .$_POST['slug']);
+        }
+        if (!isset($_SESSION['user_id'])){
+            $_SESSION['comment_error'] = 'Turite prisijungti, kad komentuti';
+            Url::redirect('catalog/show/' .$_POST['slug']);
+        }
+
+        $comment = new Comment();
+        $comment->setComment($_POST['comment']);
+        $comment->setAdId($id);
+        $comment->setUserId($_SESSION['user_id']);
+        $comment->save();
+
+        Url::redirect('catalog/show/' .$_POST['slug']);
+        
     }
 
 

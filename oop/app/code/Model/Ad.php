@@ -7,6 +7,7 @@ use Core\AbstractModel;
 
 class Ad extends AbstractModel
 {
+    protected const TABLE = 'ads';
 
     private $title;
 
@@ -36,9 +37,13 @@ class Ad extends AbstractModel
 
 
 
-    public function __construct()
+    public function __construct($id = null)
     {
-        $this->table = 'ads';
+
+        if($id !== null){
+            $this->load($id);
+        }
+
     }
 
     /**
@@ -59,7 +64,7 @@ class Ad extends AbstractModel
     }
 
     /**
-     * @param mixed $title
+     * @param mixed
      */
     public function setTitle($title)
     {
@@ -255,7 +260,7 @@ class Ad extends AbstractModel
     public function load($id)
     {
         $db = new DBHelper();
-        $ad = $db->select()->from('ads')->where('id', $id)->getOne();
+        $ad = $db->select()->from(self::TABLE)->where('id', $id)->getOne();
         if(!empty($ad)){
             $this->id = $ad['id'];
             $this->title = $ad['title'];
@@ -279,7 +284,7 @@ class Ad extends AbstractModel
     public function loadBySlug($slug)
     {
         $db = new DBHelper();
-        $rez = $db->select()->from($this->table)->where('slug', $slug)->getOne();
+        $rez = $db->select()->from(self::TABLE)->where('slug', $slug)->getOne();
         if(!empty($rez)){
             $this->load($rez['id']);
             return $this;
@@ -292,7 +297,7 @@ class Ad extends AbstractModel
     public static function getAllAds()
     {
         $db = new DBHelper();
-        $data = $db->select()->from('ads')->where('active', 1)->get();
+        $data = $db->select()->from(self::TABLE)->where('active', 1)->get();
         $ads = [];
         foreach ($data as $element) {
             $ad = new Ad();
@@ -306,7 +311,7 @@ class Ad extends AbstractModel
     {
         $db = new DBHelper();
         $data = $db->select()
-            ->from('ads')
+            ->from(self::TABLE)
             ->where('active', 1)
             ->orderBy("views", 'DESC')
             ->limit($limit)
@@ -326,7 +331,7 @@ class Ad extends AbstractModel
     {
         $db = new DBHelper();
         $data = $db->select()
-            ->from('ads')
+            ->from(self::TABLE)
             ->where('active', 1)
             ->orderBy("created_at", 'ASC')
             ->limit($limit)
@@ -345,7 +350,7 @@ class Ad extends AbstractModel
     {
         $db = new DBHelper();
         $data = $db->select()
-            ->from('ads')
+            ->from(self::TABLE)
             ->where('active', 1)
             ->limit($limit)
             ->offSet($offset)

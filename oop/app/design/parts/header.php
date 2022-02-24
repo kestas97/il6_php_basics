@@ -34,6 +34,11 @@
                     <a href="<?php echo $this->url('user/register') ?>">Sign Up</a>
                 </li>
             <?php endif; ?>
+            <?php if($this->isUserAdmin()): ?>
+            <li>
+                <a href="<?php echo $this->url('admin') ?>">Admin</a>
+            </li>
+            <?php endif; ?>
         </ul>
     </nav>
 </header>

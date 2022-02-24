@@ -206,6 +206,8 @@ class User extends AbstractController
             $user->setPassword(md5($_POST['password']));
             $user->setEmail($_POST['email']);
             $user->setCityId($_POST['city_id']);
+            $user->setActive(1);
+            $user->setRoleId(0);
             $user->save();
             Url::redirect('user/login');
         } else {
