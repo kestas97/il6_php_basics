@@ -3,10 +3,11 @@
 namespace Model;
 
 use Core\AbstractModel;
+use Core\Interfaces\ModelInterface;
 use Helper\DBHelper;
 use Helper\Logger;
 
-class Comment extends AbstractModel
+class Comment extends AbstractModel implements ModelInterface
 {
     protected const TABLE = 'comments';
     private $comment;
