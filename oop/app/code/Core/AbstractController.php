@@ -4,6 +4,8 @@ namespace Core;
 
 use Helper\Url;
 use Model\User;
+use Model\Message as MessageModel;
+
 
 class AbstractController
 {
@@ -51,6 +53,11 @@ class AbstractController
     public function url($path, $param = null)
     {
         return Url::link($path, $param);
+    }
+
+    public function getNewMessageCount($id)
+    {
+        return MessageModel::countNewMessages($id);
     }
 
 }
