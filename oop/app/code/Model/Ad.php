@@ -236,7 +236,7 @@ class Ad extends AbstractModel implements ModelInterface
 
 
 
-    protected function assignData()
+    public function assignData()
     {
         $this->data = [
             'title' => $this->title,

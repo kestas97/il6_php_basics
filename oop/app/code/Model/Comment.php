@@ -60,7 +60,7 @@ class Comment extends AbstractModel implements ModelInterface
         return new Ad($this->adId);
     }
 
-    protected function assignData()
+    public function assignData()
     {
         $this->data = [
           'comment' => $this->comment,

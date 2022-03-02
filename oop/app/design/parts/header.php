@@ -26,6 +26,10 @@
                     <a href="<?php echo $this->url('user/edit') ?>">Edit</a>
 
                 </li>
+                <li>
+                    <a href="<?php echo $this->url('message') ?>">Žinutes(<?= $this->getNewMessageCount($_SESSION['user_id']) ?>)</a>
+
+                </li>
             <?php else: ?>
                 <li>
                     <a href="<?php echo $this->url('user/login') ?>">Login</a>
