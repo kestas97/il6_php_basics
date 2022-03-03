@@ -4,6 +4,8 @@ namespace Core;
 
 use Helper\Url;
 use Model\User;
+use Model\Message as MessageModel;
+
 
 class AbstractController
 {
@@ -11,9 +13,9 @@ class AbstractController
 
     public function __construct()
     {
-       $this->data = [];
-       $this->data['title'] = 'Srotas24/7.lt';
-       $this->data['meta_description'] = '';
+        $this->data = [];
+        $this->data['title'] = 'Srotas24/7.lt';
+        $this->data['meta_description'] = '';
     }
     protected function render($template)
     {
@@ -51,6 +53,11 @@ class AbstractController
     public function url($path, $param = null)
     {
         return Url::link($path, $param);
+    }
+
+    public function getNewMessageCount($id)
+    {
+        return MessageModel::countNewMessages($id);
     }
 
 }

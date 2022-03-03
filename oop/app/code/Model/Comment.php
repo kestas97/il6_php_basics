@@ -3,10 +3,11 @@
 namespace Model;
 
 use Core\AbstractModel;
+use Core\Interfaces\ModelInterface;
 use Helper\DBHelper;
 use Helper\Logger;
 
-class Comment extends AbstractModel
+class Comment extends AbstractModel implements ModelInterface
 {
     protected const TABLE = 'comments';
     private $comment;
@@ -59,12 +60,12 @@ class Comment extends AbstractModel
         return new Ad($this->adId);
     }
 
-    protected function assignData()
+    public function assignData()
     {
         $this->data = [
-          'comment' => $this->comment,
-          'user_id' => $this->userId,
-          'ad_id' => $this->adId,
+            'comment' => $this->comment,
+            'user_id' => $this->userId,
+            'ad_id' => $this->adId,
         ];
     }
 

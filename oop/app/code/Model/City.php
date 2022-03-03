@@ -2,9 +2,10 @@
 namespace Model;
 
 use Core\AbstractController;
+use Core\Interfaces\ModelInterface;
 use Helper\DBHelper;
 
-class City extends AbstractController
+class City extends AbstractController implements ModelInterface
 {
     private $id;
 
@@ -24,6 +25,11 @@ class City extends AbstractController
     public function getName()
     {
         return $this->name;
+    }
+
+    public function assignData()
+    {
+
     }
 
     public function load($id)

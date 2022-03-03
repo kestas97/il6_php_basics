@@ -3,6 +3,7 @@
 namespace Core;
 
 use Helper\DBHelper;
+use Helper\Logger;
 
 class AbstractModel
 {
@@ -25,7 +26,9 @@ class AbstractModel
         $this->assignData();
         if (!isset($this->id)) {
             $this->create();
+            Logger::log('create');
         } else {
+            Logger::log('update');
             $this->update();
         }
     }

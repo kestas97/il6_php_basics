@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Core\AbstractController;
+use Core\Interfaces\ControllerInterface;
 use Helper\FormHelper;
 use Helper\Logger;
 use Helper\Url;
@@ -11,7 +12,7 @@ use Model\User as UserModel;
 use Helper\Validator;
 use Model\Ad;
 
-class Admin extends AbstractController
+class Admin extends AbstractController implements ControllerInterface
 {
     public const ACTIVE = 1;
 
@@ -266,4 +267,3 @@ class Admin extends AbstractController
 
     }
 }
-

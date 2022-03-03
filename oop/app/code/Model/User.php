@@ -2,13 +2,14 @@
 
 namespace  Model;
 
+use Core\Interfaces\ModelInterface;
 use Helper\DBHelper;
 use Helper\FormHelper;
 use Model\City;
 use Core\AbstractModel;
 use Helper\Logger;
 
-class User extends AbstractModel
+class User extends AbstractModel implements ModelInterface
 {
 
 
@@ -30,6 +31,8 @@ class User extends AbstractModel
 
     private $roleId;
 
+    private $nickName;
+
     protected const TABLE = 'users';
 
     public function __construct($id = null)
@@ -43,6 +46,7 @@ class User extends AbstractModel
     public function assignData()
     {
         $this->data = [
+            'nick_name' => $this->nickName,
             'name' => $this->name,
             'last_name' => $this->lastName,
             'email' => $this->email,
@@ -53,6 +57,16 @@ class User extends AbstractModel
         ];
     }
 
+
+    public function getNickName()
+    {
+        return $this->nickName;
+    }
+
+    public function setNickName($nickName)
+    {
+        $this->nickName = $nickName;
+    }
 
     public function getName()
     {
@@ -146,6 +160,7 @@ class User extends AbstractModel
         $db = new DBHelper();
         $data = $db->select()->from(self::TABLE)->where('id', $id)->getOne();
         $this->id = $data['id'];
+        $this->nickName = $data['nick_name'];
         $this->name = $data['name'];
         $this->lastName = $data['last_name'];
         $this->phone = $data['phone'];
@@ -161,12 +176,6 @@ class User extends AbstractModel
 
 
 
-//    public static function emailUnic($email)
-//    {
-//        $db = new DBHelper();
-//        $rez = $db->select()->from('users')->where('email', $email)->get();
-//        return empty($rez);
-//    }
 
     public static function checkLoginCredentionals($email, $pass)
     {

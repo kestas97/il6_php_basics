@@ -1,1 +1,3 @@
-<?php
+<div>
+    <?= $this->data['form'] ?>
+</div>

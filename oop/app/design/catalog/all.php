@@ -15,12 +15,11 @@
         </div>
 
     <?php endforeach; ?>
-     <div class="paganes">
-         <?php echo $this->data['select'];?>
-     </div>
+    <div class="paganes">
+        <?php echo $this->data['select'];?>
+    </div>
 
 </div>
-
 
 
 

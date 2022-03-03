@@ -2,13 +2,14 @@
 
 namespace Controller;
 use Core\AbstractController;
+use Core\Interfaces\ControllerInterface;
 use Helper\FormHelper;
 use Helper\Logger;
 use Helper\Url;
 use Model\Comment;
 use Model\Ad;
 use Model\User as UserModel;
-class Catalog extends AbstractController
+class Catalog extends AbstractController implements ControllerInterface
 
 {
 
@@ -181,7 +182,7 @@ class Catalog extends AbstractController
 
 
 
-        public function show($slug)
+    public function show($slug)
     {
         $ad = new Ad();
         $ad->loadBySlug($slug);
