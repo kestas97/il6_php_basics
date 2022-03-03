@@ -80,10 +80,11 @@ class message extends AbstractModel implements ModelInterface
     public function assignData()
     {
         $this->data = [
-            'sender_id' => $this->senderId,
-            'recipient_id' => $this->recipientId,
-            'message' => $this->message,
-            'status' => $this->status
+
+          'sender_id' => $this->senderId,
+          'recipient_id' => $this->recipientId,
+          'message' => $this->message,
+          'status' => $this->status
         ];
         Logger::log(print_r($this->data, true));
     }

@@ -41,8 +41,6 @@
     <?php endforeach; ?>
     <div class="create-message">
         <a href="<?= $this->url('message/send')?>" ><h4>Create new message</h4></a>
-
-
-
     </div>
 </div>
+
