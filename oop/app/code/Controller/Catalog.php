@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Controller;
 use Core\AbstractController;
@@ -13,7 +14,7 @@ class Catalog extends AbstractController implements ControllerInterface
 
 {
 
-    public function index()
+    public function index(): void
     {
         $ads = Ad::getAllAds();
         $adsPerPage = 5;
@@ -38,7 +39,7 @@ class Catalog extends AbstractController implements ControllerInterface
     }
 
 
-    public function add()
+    public function add(): void
     {
 
         if (!isset($_SESSION['user_id'])) {
@@ -93,12 +94,13 @@ class Catalog extends AbstractController implements ControllerInterface
         $ad->setDescription($_POST['description']);
         $ad->setManufacturerId(1);
         $ad->setModelId(1);
-        $ad->setPrice($_POST['price']);
-        $ad->setYear($_POST['year']);
+        $ad->setPrice((float)$_POST['price']);
+        $ad->setYear((int)$_POST['year']);
         $ad->setTypeId(1);
         $ad->setActive(1);
-        $ad->setImage($_POST['image']);
-        $ad->setUserId($_SESSION['user_id']);
+        $ad->setImage((string)$_POST['image']);
+        $ad->setUserId((int)$_SESSION['user_id']);
+        $ad->setViews(1);
         $ad->setSlug($slug);
         $ad->save();
 
@@ -163,18 +165,18 @@ class Catalog extends AbstractController implements ControllerInterface
         $this->render('catalog/create');
     }
 
-    public function update()
+    public function update(): void
     {
         $adId = $_POST['id'];
-        $ad = new Ad();
-        $ad->load($adId);
+        $ad = new Ad((int)$_POST['id']);
+        $ad->load((int)$adId);
         $ad->setTitle($_POST['title']);
         $ad->setDescription($_POST['description']);
-        $ad->setManufacturerId(1);
-        $ad->setModelId(1);
-        $ad->setPrice($_POST['price']);
-        $ad->setYear($_POST['year']);
-        $ad->setTypeId(1);
+        $ad->setManufacturerId((int)$_POST['manufacturer_id']);
+        $ad->setModelId((int)$_POST['model_id']);
+        $ad->setPrice((float)$_POST['price']);
+        $ad->setYear((int)$_POST['year']);
+        $ad->setTypeId((int)$_POST['type_id']);
         $ad->setImage($_POST['image']);
         $ad->save();
     }
@@ -182,7 +184,7 @@ class Catalog extends AbstractController implements ControllerInterface
 
 
 
-    public function show($slug)
+    public function show(string $slug): void
     {
         $ad = new Ad();
         $ad->loadBySlug($slug);
@@ -198,7 +200,7 @@ class Catalog extends AbstractController implements ControllerInterface
         ]);
 
         if (!$ad->isActive()){
-            Logger::log($ad->isActive());
+            //Logger::log($ad->isActive());
             Url::redirect('catalog/show');
 
 
@@ -221,7 +223,7 @@ class Catalog extends AbstractController implements ControllerInterface
         }
     }
 
-    public function addComment()
+    public function addComment(): void
     {
         if (!isset($_POST['comment'])){
             Url::redirect('catalog/show' .$_GET['back']);
@@ -233,8 +235,8 @@ class Catalog extends AbstractController implements ControllerInterface
 
         $comment = new Comment();
         $comment->setComment($_POST['comment']);
-        $comment->setAdId($_GET['id']);
-        $comment->setUserId($_SESSION['user_id']);
+        $comment->setAdId((int)$_GET['id']);
+        $comment->setUserId((int)$_SESSION['user_id']);
         $comment->save();
 
         Url::redirect('catalog/show/' .$_GET['back']);

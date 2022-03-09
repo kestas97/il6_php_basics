@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Model;
 
 use Helper\DBHelper;
@@ -8,16 +10,16 @@ use Helper\Logger;
 use Core\AbstractModel;
 use Core\Interfaces\ModelInterface;
 
-class message extends AbstractModel implements ModelInterface
+class Message extends AbstractModel implements ModelInterface
 {
     protected const TABLE = 'message';
-    private $senderId;
-    private $recipientId;
-    private $message;
-    private $date;
-    private $status;
+    private int $senderId;
+    private int $recipientId;
+    private string $message;
+    private string $date;
+    private int $status;
 
-    public function __construct($id = null)
+    public function __construct(?int $id = null)
     {
 
         Logger::log('no_id');
@@ -27,57 +29,57 @@ class message extends AbstractModel implements ModelInterface
         }
     }
 
-    public function getSenderId()
+    public function getSenderId(): int
     {
         return $this->senderId;
     }
 
-    public function setSenderId($senderId)
+    public function setSenderId(int $senderId): void
     {
         $this->senderId = $senderId;
     }
 
-    public function getRecipientId()
+    public function getRecipientId(): int
     {
         return $this->recipientId;
     }
 
-    public function setRecipientId($recipientId)
+    public function setRecipientId(int $recipientId): void
     {
         $this->recipientId = $recipientId;
     }
 
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->message;
     }
 
-    public function setMessage($message)
+    public function setMessage( string $message): void
     {
         $this->message = $message;
     }
 
-    public function getStatus()
+    public function getStatus(): int
     {
         return $this->status;
     }
 
-    public function setStatus($status)
+    public function setStatus(int $status): void
     {
         $this->status = $status;
     }
 
-    public function getUser()
+    public function getUser(): User
     {
         return new User($this->senderId);
     }
 
-    public function getDate()
+    public function getDate(): string
     {
         return $this->date;
     }
 
-    public function assignData()
+    public function assignData(): void
     {
         $this->data = [
 
@@ -89,26 +91,26 @@ class message extends AbstractModel implements ModelInterface
         Logger::log(print_r($this->data, true));
     }
 
-    public function load($id)
+    public function load(int $id): Message
     {
         $db = new DBHelper();
-        $data = $db->select()
+        $message = $db->select()
             ->from(self::TABLE)
             ->where('id', $id)
             ->getOne();
-        if (!empty($data)){
-            $this->id = $data['id'];
-            $this->senderId = $data['sender_id'];
-            $this->recipientId = $data['recipient_id'];
-            $this->message = $data['message'];
-            $this->status = $data['status'];
-            $this->date = $data['date'];
+        if (!empty($message)){
+            $this->id = (int)$message['id'];
+            $this->senderId = (int)$message['sender_id'];
+            $this->recipientId = (int)$message['recipient_id'];
+            $this->message = $message['message'];
+            $this->status = (int)$message['status'];
+            $this->date = $message['date'];
         }
 
         return $this;
     }
 
-    public static function getNewMessages($userId)
+    public static function getNewMessages(int $userId): array
     {
         $db = new DBHelper();
         $data = $db->select()
@@ -122,14 +124,14 @@ class message extends AbstractModel implements ModelInterface
 
         foreach ($data as $element) {
             $message = new Message();
-            $message->load($element['id']);
+            $message->load((int)$element['id']);
             $messages[] = $message;
         }
         Logger::log(print_r($messages, true));
         return $messages;
     }
 
-    public static function getOldMessages($userId)
+    public static function getOldMessages(int $userId): array
     {
         $db = new DBHelper();
         $data = $db->select()
@@ -141,7 +143,7 @@ class message extends AbstractModel implements ModelInterface
 
         foreach ($data as $element){
             $message = new Message();
-            $message->load($element['id']);
+            $message->load((int)$element['id']);
             $messages[] = $message;
         }
 
@@ -150,7 +152,7 @@ class message extends AbstractModel implements ModelInterface
 
 
 
-    public static function countNewMessages($userId)
+    public static function countNewMessages(int $userId): int
     {
         $db = new DBHelper();
         $rez = $db->select('count(*)')
@@ -158,7 +160,9 @@ class message extends AbstractModel implements ModelInterface
             ->where('recipient_id', $userId)
             ->andWhere('status', 0)
             ->get();
-        return $rez[0][0];
+        return (int)$rez[0][0];
     }
+
+
 
 }

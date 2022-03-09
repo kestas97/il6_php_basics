@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 namespace Controller;
 
 use Core\AbstractController;
@@ -29,24 +30,24 @@ class Admin extends AbstractController implements ControllerInterface
 
     }
 
-    public function index()
+    public function index(): void
     {
         $this->renderAdmin('index');
     }
 
-    public function users()
+    public function users(): void
     {
         $this->data['users'] = UserModel::getAllUsers();
         $this->renderAdmin('users/list');
     }
 
-    public function ads()
+    public function ads(): void
     {
         $this->data['ads'] = Ad::getAllAds();
         $this->renderAdmin('ads\list');
     }
 
-    public function useredit($id)
+    public function useredit(int $id): void
     {
         $user = new UserModel();
         $form = new FormHelper('admin/userupdate', 'POST');
@@ -127,18 +128,18 @@ class Admin extends AbstractController implements ControllerInterface
         $this->renderAdmin('users/edit');
     }
 
-    public function userUpdate()
+    public function userUpdate(): void
     {
-        $userId = $_POST['user_id'];
+        $userId = (int)$_POST['user_id'];
         $user = new UserModel();
-        $user->load($userId);
+        $user->load((int)$userId);
 
-        $user->setName($_POST['name']);
-        $user->setLastName($_POST['last_name']);
-        $user->setPhone($_POST['phone']);
-        $user->setCityId($_POST['city_id']);
-        $user->setActive($_POST['active']);
-        $user->setRoleId($_POST['role_id']);
+        $user->setName((string)$_POST['name']);
+        $user->setLastName((string)$_POST['last_name']);
+        $user->setPhone((string)$_POST['phone']);
+        $user->setCityId((int)$_POST['city_id']);
+        $user->setActive((int)$_POST['active']);
+        $user->setRoleId((int)$_POST['role_id']);
 
         if ($_POST['password'] != '' && Validator::checkPassword($_POST['password'], $_POST['password2'])) {
             $user->setPassword(md5($_POST['password']));
@@ -156,7 +157,7 @@ class Admin extends AbstractController implements ControllerInterface
 
 
 
-    public function adedit($id)
+    public function adedit(int $id): void
     {
         $ad = new Ad($id);
         $form = new FormHelper('admin/adupdate', 'POST');
@@ -216,18 +217,18 @@ class Admin extends AbstractController implements ControllerInterface
         $ad = new Ad($adId);
         $ad->setTitle($_POST['title']);
         $ad->setDescription($_POST['description']);
-        $ad->setManufacturerId(1);
-        $ad->setModelId(1);
+        $ad->setManufacturerId((int)$_POST['manufacturer_id']);
+        $ad->setModelId((int)$_POST['model_id']);
         $ad->setImage($_POST['image']);
-        $ad->setPrice($_POST['price']);
-        $ad->setYear($_POST['year']);
-        $ad->setTypeId(1);
-        $ad->setActive($_POST['active']);
+        $ad->setPrice((float)$_POST['price']);
+        $ad->setYear((int)$_POST['year']);
+        $ad->setTypeId((int)$_POST['year']);
+        $ad->setActive((int)$_POST['active']);
         $ad->save();
         Url::redirect('admin/ads');
     }
 
-    public function changeUserStatus()
+    public function changeUserStatus(): void
     {
         $collection = [];
         if (isset($_POST['collection']))
@@ -237,29 +238,29 @@ class Admin extends AbstractController implements ControllerInterface
         foreach ($collection as $item)
         {
             $user = new UserModel();
-            $user->load($item);
-            $user->setActive($_POST['action']);
+            $user->load((int)$item);
+            $user->setActive((int)$_POST['action']);
             $user->save();
 
         }
         Url::redirect('admin/users');
     }
 
-    public function massadsupdate()
+    public function massadsupdate(): void
     {
         $action = $_POST['action'];
         $ids = $_POST['ad_id'];
         if ($action == self::ACTIVE || $action == self::NOT_ACTIVE) {
             foreach ($ids as $id) {
-                $ad = new Ad($id);
-                $ad->setActive($action);
+                $ad = new Ad((int)$id);
+                $ad->setActive((int)$action);
                 $ad->save();
             }
         } elseif ($action == self::DELETE)
         {
             foreach ($ids as $id)
             {
-                $ad = new Ad($id);
+                $ad = new Ad((int)$id);
                 $ad->delete();
             }
             Url::redirect('admin/ads');

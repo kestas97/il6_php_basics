@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 namespace  Model;
 
 use Core\Interfaces\ModelInterface;
@@ -13,29 +14,29 @@ class User extends AbstractModel implements ModelInterface
 {
 
 
-    private $name;
+    private string $name;
 
-    private $lastName;
+    private string $lastName;
 
-    private $email;
+    private string $email;
 
-    private $password;
+    private string $password;
 
-    private $phone;
+    private string $phone;
 
-    private $cityId;
+    private int $cityId;
 
-    private $city;
+    private  City $city;
 
-    private $active;
+    private int $active;
 
-    private $roleId;
+    private int $roleId;
 
-    private $nickName;
+    private string $nickName;
 
     protected const TABLE = 'users';
 
-    public function __construct($id = null)
+    public function __construct(?int $id = null)
     {
 
         if ($id !== null){
@@ -43,7 +44,104 @@ class User extends AbstractModel implements ModelInterface
         }
     }
 
-    public function assignData()
+
+    public function getNickName():string
+    {
+        return $this->nickName;
+    }
+
+    public function setNickName(string $nickName): void
+    {
+        $this->nickName = $nickName;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(string $lastName): void
+    {
+        $this->lastName = $lastName;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    public function getPhone(): string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(string $phone): void
+    {
+        $this->phone = $phone;
+    }
+
+    public function getCityId(): int
+    {
+        return $this->cityId;
+    }
+
+    public function setCityId(int $id): void
+    {
+        $this->cityId = $id;
+    }
+
+    public function getCity(): City
+    {
+        return $this->city;
+    }
+
+
+    public function isActive(): int
+    {
+        return $this->active;
+    }
+
+    public function setActive(int $active): void
+    {
+        $this->active = $active;
+    }
+
+    public function getRoleId(): int
+    {
+        return $this->roleId;
+    }
+
+    public function setRoleId(int $id): void
+    {
+        $this->roleId = $id;
+    }
+
+    public function assignData(): void
     {
         $this->data = [
             'nick_name' => $this->nickName,
@@ -57,118 +155,20 @@ class User extends AbstractModel implements ModelInterface
         ];
     }
 
-
-    public function getNickName()
-    {
-        return $this->nickName;
-    }
-
-    public function setNickName($nickName)
-    {
-        $this->nickName = $nickName;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-    }
-
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    }
-
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-    }
-
-    public function getCityId()
-    {
-        return $this->cityId;
-    }
-
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-
-    public function setCityId($id)
-    {
-        $this->cityId = $id;
-    }
-
-    public function isActive()
-    {
-        return $this->active;
-    }
-
-    public function setActive($active)
-    {
-        $this->active = $active;
-    }
-
-    public function getRoleId()
-    {
-        return $this->roleId;
-    }
-
-    public function setRoleId($id)
-    {
-        $this->roleId = $id;
-    }
-
-
-    public function load($id)
+    public function load(int $id): User
     {
         $db = new DBHelper();
         $data = $db->select()->from(self::TABLE)->where('id', $id)->getOne();
-        $this->id = $data['id'];
+        $this->id = (int)$data['id'];
         $this->nickName = $data['nick_name'];
         $this->name = $data['name'];
         $this->lastName = $data['last_name'];
         $this->phone = $data['phone'];
         $this->email = $data['email'];
         $this->password = $data['password'];
-        $this->cityId = $data['city_id'];
-        $this->roleId =$data['role_id'];
-        $this->active = $data['active'];
+        $this->cityId = (int)$data['city_id'];
+        $this->roleId = (int)$data['role_id'];
+        $this->active = (int)$data['active'];
         $city = new City();
         $this->city = $city->load($this->cityId);
         return $this;
@@ -177,7 +177,7 @@ class User extends AbstractModel implements ModelInterface
 
 
 
-    public static function checkLoginCredentionals($email, $pass)
+    public static function checkLoginCredentionals(string $email, string $pass): ?int
     {
         $db = new DBHelper();
         $rez = $db
@@ -188,28 +188,33 @@ class User extends AbstractModel implements ModelInterface
             ->getOne();
 
         if (isset($rez['id'])) {
-            return $rez['id'];
+            return (int)$rez['id'];
         } else {
-            return false;
+            return null;
         }
         //return isset($rez['id']) ? $rez['id'] : false;
     }
 
-    public static function getAllUsers()
+    public static function getAllUsers(): array
     {
         $db = new DBHelper();
         $data = $db->select('id')->from(self::TABLE)->get();
         $users = [];
         foreach ($data as $element) {
             $user = new User();
-            $user->load($element['id']);
+            $user->load((int)$element['id']);
             $users[] = $user;
         }
 
         return $users;
     }
 
-
+    public static function getRecipient(string $nickName): string
+    {
+        $db = new DBHelper();
+        $data = $db->select('id')->from(self::TABLE)->where('nick_name', $nickName)->getOne();
+        return (string)$data[0];
+    }
 
 
 }

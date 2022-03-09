@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 namespace Model;
 
 use Core\Interfaces\ModelInterface;
@@ -11,35 +12,35 @@ class Ad extends AbstractModel implements ModelInterface
 {
     protected const TABLE = 'ads';
 
-    private $title;
+    private string $title;
 
-    private $description;
+    private string $description;
 
-    private $manufacturerId;
+    private int $manufacturerId;
 
-    private $modelId;
+    private int $modelId;
 
-    private $price;
+    private float $price;
 
-    private $year;
+    private int $year;
 
-    private $typeId;
+    private int $typeId;
 
-    private $userId;
+    private int $userId;
 
-    private $image;
+    private string $image;
 
-    private $active;
+    private int $active;
 
-    private $slug;
+    private string $slug;
 
-    private $createdAt;
+    private string $createdAt;
 
-    private $views;
+    private int $views;
 
 
 
-    public function __construct($id = null)
+    public function __construct(?int $id = null)
     {
 
         if($id !== null){
@@ -60,7 +61,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -68,7 +69,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @param mixed
      */
-    public function setTitle($title)
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
@@ -76,7 +77,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -84,7 +85,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @param mixed $description
      */
-    public function setDescription($description)
+    public function setDescription(string $description): void
     {
         $this->description = $description;
     }
@@ -92,7 +93,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @return mixed
      */
-    public function getManufacturerId()
+    public function getManufacturerId(): int
     {
         return $this->manufacturerId;
     }
@@ -100,7 +101,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @param mixed $manufacturerId
      */
-    public function setManufacturerId($manufacturerId)
+    public function setManufacturerId(int $manufacturerId): void
     {
         $this->manufacturerId = $manufacturerId;
     }
@@ -108,7 +109,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @return mixed
      */
-    public function getModelId()
+    public function getModelId(): int
     {
         return $this->modelId;
     }
@@ -116,7 +117,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @param mixed $modelId
      */
-    public function setModelId($modelId)
+    public function setModelId(int $modelId): void
     {
         $this->modelId = $modelId;
     }
@@ -124,7 +125,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @return mixed
      */
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->price;
     }
@@ -132,7 +133,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @param mixed $price
      */
-    public function setPrice($price)
+    public function setPrice(float $price): void
     {
         $this->price = $price;
     }
@@ -140,7 +141,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @return mixed
      */
-    public function getYear()
+    public function getYear(): int
     {
         return $this->year;
     }
@@ -148,7 +149,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @param mixed $year
      */
-    public function setYear($year)
+    public function setYear(int $year): void
     {
         $this->year = $year;
     }
@@ -156,7 +157,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @return mixed
      */
-    public function getTypeId()
+    public function getTypeId(): int
     {
         return $this->typeId;
     }
@@ -164,7 +165,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @param mixed $typeId
      */
-    public function setTypeId($typeId)
+    public function setTypeId(int $typeId): void
     {
         $this->typeId = $typeId;
     }
@@ -172,7 +173,7 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getUserId(): int
     {
         return $this->userId;
     }
@@ -180,63 +181,68 @@ class Ad extends AbstractModel implements ModelInterface
     /**
      * @param mixed $userId
      */
-    public function setUserId($userId)
+    public function setUserId(int $userId): void
     {
         $this->userId = $userId;
     }
 
-    public function getImage()
+    public function getImage(): string
     {
         return $this->image;
     }
 
-    public function setImage($image)
+    public function setImage(string $image): void
     {
         $this->image = $image;
     }
 
-    public function isActive()
+    public function isActive(): int
     {
         return $this->active;
     }
 
-    public function setActive($active)
+    public function setActive(int $active): void
     {
         $this->active = $active;
     }
 
-    public function getSlug()
+    public function getSlug(): string
     {
         return $this->slug;
     }
 
-    public function setSlug($slug)
+    public function setSlug(string $slug): void
     {
         $this->slug = $slug;
     }
 
-    public function getCreatedAt()
+    public function getCreatedAt(): string
     {
         return $this->createdAt;
     }
 
 
 
-    public function getViews()
+    public function getViews(): int
     {
         return $this->views;
     }
 
 
-    public function setViews($views)
+    public function setViews(int $views): void
     {
         $this->views = $views;
+    }
+
+    public function getUser(): User
+    {
+        return new User($this->userId);
     }
 
 
 
 
-    public function assignData()
+    public function assignData(): void
     {
         $this->data = [
             'title' => $this->title,
@@ -259,25 +265,25 @@ class Ad extends AbstractModel implements ModelInterface
 
 
 
-    public function load($id)
+    public function load(int $id): Ad
     {
         $db = new DBHelper();
         $ad = $db->select()->from(self::TABLE)->where('id', $id)->getOne();
         if(!empty($ad)){
-            $this->id = $ad['id'];
+            $this->id = (int)$ad['id'];
             $this->title = $ad['title'];
-            $this->manufacturerId = $ad['manufacturer_id'];
+            $this->manufacturerId = (int)$ad['manufacturer_id'];
             $this->description = $ad['description'];
-            $this->modelId = $ad['model_id'];
-            $this->price = $ad['price'];
-            $this->year = $ad['year'];
-            $this->typeId = $ad['type_id'];
-            $this->userId = $ad['user_id'];
+            $this->modelId = (int)$ad['model_id'];
+            $this->price = (float)$ad['price'];
+            $this->year = (int)$ad['year'];
+            $this->typeId = (int)$ad['type_id'];
+            $this->userId = (int)$ad['user_id'];
             $this->image = $ad['image'];
-            $this->active = $ad['active'];
+            $this->active = (int)$ad['active'];
             $this->slug = $ad['slug'];
             $this->createdAt = $ad['created_at'];
-            $this->views = $ad['views'];
+            $this->views = (int)$ad['views'];
         }
 
         Logger::log($ad['active'] .'belekas');
@@ -285,33 +291,33 @@ class Ad extends AbstractModel implements ModelInterface
 
     }
 
-    public function loadBySlug($slug)
+    public function loadBySlug(string $slug): ?Ad
     {
         $db = new DBHelper();
         $rez = $db->select()->from(self::TABLE)->where('slug', $slug)->getOne();
         if(!empty($rez)){
-            $this->load($rez['id']);
+            $this->load((int)$rez['id']);
             return $this;
         }else{
-            return false;
+            return null;
         }
     }
 
 
-    public static function getAllAds()
+    public static function getAllAds(): array
     {
         $db = new DBHelper();
         $data = $db->select()->from(self::TABLE)->where('active', 1)->get();
         $ads = [];
         foreach ($data as $element) {
             $ad = new Ad();
-            $ad->load($element['id']);
+            $ad->load((int)$element['id']);
             $ads[] = $ad;
         }
         return $ads;
     }
 
-    public static function getPopularOne($limit)
+    public static function getPopularOne(int $limit): array
     {
         $db = new DBHelper();
         $data = $db->select()
@@ -323,7 +329,7 @@ class Ad extends AbstractModel implements ModelInterface
         $ads = [];
         foreach ($data as $element) {
             $ad = new Ad();
-            $ad->load($element['id']);
+            $ad->load((int)$element['id']);
             $ads[] = $ad;
         }
         return $ads;
@@ -331,7 +337,7 @@ class Ad extends AbstractModel implements ModelInterface
 
     }
 
-    public static function getNewest($limit)
+    public static function getNewest(int $limit): array
     {
         $db = new DBHelper();
         $data = $db->select()
@@ -343,14 +349,14 @@ class Ad extends AbstractModel implements ModelInterface
         $ads = [];
         foreach ($data as $element) {
             $ad = new Ad();
-            $ad->load($element['id']);
+            $ad->load((int)$element['id']);
             $ads[] = $ad;
         }
         return $ads;
 
     }
 
-    public static function getPagenes($offset, $limit)
+    public static function getPagenes(int $offset, int $limit): array
     {
         $db = new DBHelper();
         $data = $db->select()
@@ -362,7 +368,7 @@ class Ad extends AbstractModel implements ModelInterface
         $ads = [];
         foreach ($data as $element) {
             $ad = new Ad();
-            $ad->load($element['id']);
+            $ad->load((int)$element['id']);
             $ads[] = $ad;
         }
         return $ads;

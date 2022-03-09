@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 namespace Controller;
 
 use Core\Interfaces\ControllerInterface;
@@ -11,22 +13,28 @@ use Model\User as UserModel;
 use Core\AbstractController;
 class User extends AbstractController implements ControllerInterface
 {
-    public function index()
+    public function index(): void
     {
         $this->data['users'] = UserModel::getAllUsers();
         $this->render('user/list');
     }
 
 
-    public function show($id)
+    public function show(int $id = null): void
     {
         echo 'User controller ID: ' . $id;
     }
 
-    public function register()
+    public function register(): void
     {
 
         $form = new FormHelper('user/create', 'POST');
+
+        $form->input([
+            'name' => 'nick_name',
+            'type' => 'text',
+            'placeholder' => 'Slapyvardis'
+        ]);
 
         $form->input([
             'name' => 'name',
@@ -76,7 +84,7 @@ class User extends AbstractController implements ControllerInterface
         $this->render('user/register');
     }
 
-    public function edit()
+    public function edit(): void
     {
         if (!isset($_SESSION['user_id'])) {
             Url::redirect('user/login');
@@ -146,16 +154,17 @@ class User extends AbstractController implements ControllerInterface
 
     }
 
-    public function update()
+    public function update(): void
     {
         $userId = $_SESSION['user_id'];
         $user = new UserModel();
         $user->load($userId);
 
+       // $user->setNickName($_POST['nick_name']);
         $user->setName($_POST['name']);
         $user->setLastName($_POST['last_name']);
         $user->setPhone($_POST['phone']);
-        $user->setCityId($_POST['city_id']);
+        $user->setCityId((int)$_POST['city_id']);
 
         if ($_POST['password'] != '' && Validator::checkPassword($_POST['password'], $_POST['password2'])) {
             $user->setPassword(md5($_POST['password']));
@@ -168,10 +177,10 @@ class User extends AbstractController implements ControllerInterface
         }
 
         $user->save();
-        Url::redirect('user/edit');
+        Url::redirect('');
     }
 
-    public function login()
+    public function login(): void
     {
         $form = new FormHelper('user/check', 'POST');
         $form->input([
@@ -194,21 +203,23 @@ class User extends AbstractController implements ControllerInterface
         $this->render('user/login');
     }
 
-    public function create()
+    public function create(): void
     {
         $passMatch = Validator::checkPassword($_POST['password'], $_POST['password2']);
         $isEmailValid = Validator::checkEmail($_POST['email']);
         $isEmailUnic = UserModel::isValuelUnic('email', $_POST['email'], 'users');
-        if ($passMatch && $isEmailValid && $isEmailUnic) {
+        $isNickNameUnic = UserModel::isValuelUnic('nick_name', $_POST['nick_name']);
+        if ($passMatch && $isEmailValid && $isEmailUnic && $isNickNameUnic) {
             $user = new UserModel();
+            $user->setNickName($_POST['nick_name']);
             $user->setName($_POST['name']);
             $user->setLastName($_POST['last_name']);
             $user->setPhone($_POST['phone']);
             $user->setPassword(md5($_POST['password']));
             $user->setEmail($_POST['email']);
-            $user->setCityId($_POST['city_id']);
-            $user->setActive(1);
-            $user->setRoleId(0);
+            $user->setCityId((int)$_POST['city_id']);
+            $user->setActive((int)$_POST['active']);
+            $user->setRoleId((int)$_POST['role_id']);
             $user->save();
             Url::redirect('user/login');
         } else {
@@ -216,7 +227,7 @@ class User extends AbstractController implements ControllerInterface
         }
     }
 
-    public function check()
+    public function check(): void
     {
         $email = $_POST['email'];
         $password = md5($_POST['password']);
@@ -233,7 +244,7 @@ class User extends AbstractController implements ControllerInterface
         }
     }
 
-    public function logout()
+    public function logout(): void
     {
         session_destroy();
         Url::redirect('');
