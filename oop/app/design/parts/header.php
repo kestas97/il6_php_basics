@@ -20,6 +20,9 @@
                     <a href="<?php echo $this->url('catalog/add') ?>">Add New</a>
                 </li>
                 <li>
+                    <a href="<?= $this->url('user/favorite') ?>">🌟</a>
+                </li>
+                <li>
                     <a href="<?php echo $this->url('user/logout') ?>">Logout</a>
                 </li>
                 <li>
@@ -27,7 +30,7 @@
 
                 </li>
                 <li>
-                    <a href="<?php echo $this->url('message') ?>">Žinutes(<?= $this->getNewMessageCount($_SESSION['user_id']) ?>)</a>
+                    <a href="<?php echo $this->url('message') ?>">Žinutes(<?= $this->data['new_messages'] ?>)</a>
 
                 </li>
             <?php else: ?>

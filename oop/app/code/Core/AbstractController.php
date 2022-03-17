@@ -17,6 +17,9 @@ class AbstractController
         $this->data = [];
         $this->data['title'] = 'Srotas24/7.lt';
         $this->data['meta_description'] = '';
+        if ($this->isUserLogged()){
+            $this->data['new_messages'] = MessageModel::getUnreadMessagesCount();
+        }
     }
     protected function render($template): void
     {
@@ -56,9 +59,6 @@ class AbstractController
         return Url::link($path, $param);
     }
 
-    public function getNewMessageCount($id)
-    {
-        return MessageModel::countNewMessages($id);
-    }
+
 
 }

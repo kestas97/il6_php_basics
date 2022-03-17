@@ -22,63 +22,52 @@ class Message extends AbstractController implements ControllerInterface
 
     public function index(): void
     {
-        if (!isset($_SESSION['user_id'])) Url::redirect('user/login');
+        $messages = MessageModel::getUserRelatedMessages();
+        $chats = [];
+        foreach ($messages as $message){
+            if ($message->getSenderId() > $message->getRecipientId()){
+                $key = $message->getRecipientId() . '-' . $message->getSenderId();
+            }else{
+                $key = $message->getSenderId() . '-' . $message->getRecipientId();
+            }
+            $chatFriendId = $message->getSenderId() == $_SESSION['user_id'] ? $message->getRecipientId() : $message->getSenderId();
+            //Logger::log('sned_id '.$message->getSenderId());
 
-        $this->data['new_messages'] = MessageModel::getNewMessages((int)$_SESSION['user_id']);
-        $this->data['old_messages'] = MessageModel::getOldMessages((int)$_SESSION['user_id']);
+            //Logger::log('rec_id '.$message->getSenderId());
 
-
-        foreach ($this->data['new_messages'] as $message){
-            Logger::log((string)$message->getId());
-            $status = new MessageModel((int)$message->getId());
-            $status->setStatus((int) 1);
-            $status->save();
+            $chatFriend = new UserModel();
+            //Logger::log('id '.$chatFriendId);
+            $chatFriend->load((int)$chatFriendId);
+            $chats[$key]['message'] = $message;
+            $chats[$key]['chat_friend'] = $chatFriend;
         }
-        $this->render('message/inbox');
-    }
+            usort($chats, function ($item1, $item2){
+            return $item2['message']->getId() <=> $item1['message']->getId();
+            });
 
-    public function send(string $nickName = null): void
-    {
-        if (!isset($_SESSION['user_id'])) Url::redirect('user/login');
-
-        $form = new FormHelper('message/sendmessage', 'POST');
-
-        $form->input([
-            'name' => 'sender_id',
-            'value' => $_SESSION['user_id'],
-            'type' => 'hidden'
-        ]);
-
-        $form->input([
-            'name' => 'recipient',
-            'value' => $nickName,
-            'placeholder' => 'Vardas',
-            'type' => 'text'
-        ]);
-
-        $form->textArea('message', null, 'your message', 255 );
-        $form->input([
-            'name' => 'submit',
-            'value' => 'send',
-            'type' => 'submit'
-        ]);
-
-        $this->data['form'] = $form->getForm();
-        $this->render('message/send');
+            $this->data['chat'] = $chats;
+            $this->render('message/inbox');
 
     }
 
-    public function sendMessage(): void
+
+    public function chat(int $chatFriendId): void
     {
-        $nickName = $_POST['recipient'];
-        $recipient = UserModel::getRecipient($nickName);
+        $this->data['messages'] = MessageModel::getUserMessagesWithFriend($chatFriendId);
+        MessageModel::makeSeen($chatFriendId, $_SESSION['user_id']);
+        $this->data['reseiver_id'] = $chatFriendId;
+        $this->render('message/chat');
+    }
+
+    public function send(): void
+    {
         $message = new MessageModel();
-        $message->setSenderId((int)$_POST['sender_id']);
-        $message->setRecipientId((int)$recipient);
         $message->setMessage($_POST['message']);
-        $message->setStatus((int)$_POST['status']);
+        $message->setRecipientId((int)$_POST['reseiver_id']);
+        $message->setSenderId((int)$_SESSION['user_id']);
+        $message->setSeen(0);
         $message->save();
-
-        Url::redirect('');
+        Url::redirect('message/chat/' . $_POST['reseiver_id']);
     }
+
 }

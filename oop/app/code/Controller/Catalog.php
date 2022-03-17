@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace Controller;
+
 use Core\AbstractController;
 use Core\Interfaces\ControllerInterface;
 use Helper\FormHelper;
@@ -9,7 +10,11 @@ use Helper\Logger;
 use Helper\Url;
 use Model\Comment;
 use Model\Ad;
+use Model\Rating;
+use Model\SavedAd;
 use Model\User as UserModel;
+use Model\Rating as RatingModel;
+
 class Catalog extends AbstractController implements ControllerInterface
 
 {
@@ -21,14 +26,13 @@ class Catalog extends AbstractController implements ControllerInterface
         $adCount = count($ads);
         $pageCount = ceil($adCount / $adsPerPage);
         $options = [];
-        for ($y = 1; $y <=$pageCount; $y++){
+        for ($y = 1; $y <= $pageCount; $y++) {
             $options[$y] = $y;
         }
         $select = new FormHelper('catalog/', 'GET');
-        $select->select(['name'=>'page', 'options'=>$options]);
-        $select->input(['type'=>'submit', 'value'=>'submit']);
-        if (empty($_GET['page']))
-        {
+        $select->select(['name' => 'page', 'options' => $options]);
+        $select->input(['type' => 'submit', 'value' => 'submit']);
+        if (empty($_GET['page'])) {
             $_GET['page'] = 1;
         }
         $firstAd = ($_GET['page'] - 1) * $adsPerPage;
@@ -86,7 +90,7 @@ class Catalog extends AbstractController implements ControllerInterface
     public function create()
     {
         $slug = Url::slug($_POST['title']);
-        while (!Ad::isValuelUnic('slug', $slug, 'ads')){
+        while (!Ad::isValuelUnic('slug', $slug, 'ads')) {
             $slug = $slug . rand(0, 100);
         }
         $ad = new Ad();
@@ -182,8 +186,6 @@ class Catalog extends AbstractController implements ControllerInterface
     }
 
 
-
-
     public function show(string $slug): void
     {
         $ad = new Ad();
@@ -199,25 +201,59 @@ class Catalog extends AbstractController implements ControllerInterface
             'value' => 'Comment'
         ]);
 
-        if (!$ad->isActive()){
+        if (!$ad->isActive()) {
             //Logger::log($ad->isActive());
             Url::redirect('catalog/show');
 
 
         }
 
+        if (isset($_SESSION['user_id'])) {
+            $this->data['rated'] = false;
+            $rate = new Rating();
+            $isRateNull = $rate->loadByUserAndAd((int)$_SESSION['user_id'], $ad->getId());
+            if ($isRateNull !== null) {
+                $this->data['rated'] = true;
+                $this->data['user_rate'] = $rate->getRating();
+
+            }
+
+//            if ($this->isUserLogged()){
+                $savedAd = new SavedAd();
+                $savedAd = $savedAd->loadByUserAndAd((int)$_SESSION['user_id'], $ad->getId());
+                $this->data['saved_ad'] = $savedAd;
+
+
+//            }
+        }
+
+        $ratings = Rating::getRatingsByAd($ad->getId());
+        $sum = 0;
+        foreach ($ratings as $rate) {
+            $sum += $rate['rating'];
+
+        }
+
+
+        $this->data['ad_rating'] = 0;
+        $this->data['rating_count'] = count($ratings);
+        if ($sum > 0) {
+            $this->data['ad_rating'] = $sum / $this->data['rating_count'];
+        }
+
 
         $views = $ad->getViews();
-        $views = $views+1;
+        $views = $views + 1;
         $ad->setViews($views);
         $ad->save();
         $this->data['ad'] = $ad;
-        if($this->data['ad']){
+        if ($this->data['ad']) {
+            $this->data['rated'] = false;
             $this->data['comments'] = Comment::getAdComments($ad->getId());
             $this->data['comment_box'] = $form->getForm();
             $this->render('catalog/show');
 
-        }else{
+        } else {
             $error = new Error();
             $error->error404();
         }
@@ -225,12 +261,12 @@ class Catalog extends AbstractController implements ControllerInterface
 
     public function addComment(): void
     {
-        if (!isset($_POST['comment'])){
-            Url::redirect('catalog/show' .$_GET['back']);
+        if (!isset($_POST['comment'])) {
+            Url::redirect('catalog/show' . $_GET['back']);
         }
-        if (!isset($_SESSION['user_id'])){
+        if (!isset($_SESSION['user_id'])) {
 
-            Url::redirect('catalog/show/' .$_GET['back']);
+            Url::redirect('catalog/show/' . $_GET['back']);
         }
 
         $comment = new Comment();
@@ -239,10 +275,42 @@ class Catalog extends AbstractController implements ControllerInterface
         $comment->setUserId((int)$_SESSION['user_id']);
         $comment->save();
 
-        Url::redirect('catalog/show/' .$_GET['back']);
+        Url::redirect('catalog/show/' . $_GET['back']);
 
     }
 
 
+    public function rate(): void
+    {
+        $rate = new Rating();
+        $rate->loadByUserAndAd((int)$_SESSION['user_id'], (int)$_POST['ad_id']);
+        $rate->setUserId((int)$_SESSION['user_id']);
+        $rate->setAdId((int)$_POST['ad_id']);
+        $rate->setRating((int)$_POST['rate']);
+        $rate->save();
+        $ad = new Ad((int)$_POST['ad_id']);
+        Url::redirect('catalog/show/' . $ad->getSlug());
+
+
+    }
+
+
+    public function favorite(): void
+    {
+        print_r($_POST);
+        $adId = (int)$_POST['ad_id'];
+        $savedAd = new SavedAd();
+        $saved = $savedAd->loadByUserAndAd((int)$_SESSION['user_id'], $adId);
+        if ($saved !== null){
+            $saved->delete();
+        }else{
+            $savedAd->setAdId((int)$adId);
+            $savedAd->setUserId((int)$_SESSION['user_id']);
+            $savedAd->save();
+        }
+            $ad = new Ad((int)$_POST['ad_id']);
+            Url::redirect('catalog/show/' . $ad->getSlug());
+
+    }
 
 }

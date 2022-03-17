@@ -17,7 +17,7 @@ class Message extends AbstractModel implements ModelInterface
     private int $recipientId;
     private string $message;
     private string $date;
-    private int $status;
+    private int $seen;
 
     public function __construct(?int $id = null)
     {
@@ -59,14 +59,14 @@ class Message extends AbstractModel implements ModelInterface
         $this->message = $message;
     }
 
-    public function getStatus(): int
+    public function isSeen(): int
     {
-        return $this->status;
+        return $this->seen;
     }
 
-    public function setStatus(int $status): void
+    public function setSeen(int $seen): void
     {
-        $this->status = $status;
+        $this->seen = $seen;
     }
 
     public function getUser(): User
@@ -79,6 +79,8 @@ class Message extends AbstractModel implements ModelInterface
         return $this->date;
     }
 
+
+
     public function assignData(): void
     {
         $this->data = [
@@ -86,7 +88,7 @@ class Message extends AbstractModel implements ModelInterface
           'sender_id' => $this->senderId,
           'recipient_id' => $this->recipientId,
           'message' => $this->message,
-          'status' => $this->status
+          'seen' => $this->seen
         ];
         Logger::log(print_r($this->data, true));
     }
@@ -94,75 +96,80 @@ class Message extends AbstractModel implements ModelInterface
     public function load(int $id): Message
     {
         $db = new DBHelper();
-        $message = $db->select()
+        $rez = $db->select()
             ->from(self::TABLE)
             ->where('id', $id)
             ->getOne();
-        if (!empty($message)){
-            $this->id = (int)$message['id'];
-            $this->senderId = (int)$message['sender_id'];
-            $this->recipientId = (int)$message['recipient_id'];
-            $this->message = $message['message'];
-            $this->status = (int)$message['status'];
-            $this->date = $message['date'];
+        if (!empty($rez)){
+            $this->id = (int)$rez['id'];
+            $this->senderId = (int)$rez['sender_id'];
+            $this->recipientId = (int)$rez['recipient_id'];
+            $this->message = $rez['message'];
+            $this->seen = (int)$rez['seen'];
+            $this->date = $rez['date'];
         }
 
         return $this;
     }
 
-    public static function getNewMessages(int $userId): array
+    public static function getUnreadMessagesCount(): int
     {
         $db = new DBHelper();
-        $data = $db->select()
+        $rez = $db->select('COUNT(*)')
             ->from(self::TABLE)
-            ->where('recipient_id', $userId)
-            ->andWhere('status', 0)
+            ->where('recipient_id', $_SESSION['user_id'])
+            ->andWhere('seen', 0)
             ->get();
-        Logger::log(print_r($data, true));
-
-        $messages = [];
-
-        foreach ($data as $element) {
-            $message = new Message();
-            $message->load((int)$element['id']);
-            $messages[] = $message;
-        }
-        Logger::log(print_r($messages, true));
-        return $messages;
+        return (int)$rez[0][0];
     }
 
-    public static function getOldMessages(int $userId): array
+    public static function getUserRelatedMessages(): array
     {
         $db = new DBHelper();
+        $userId = $_SESSION['user_id'];
         $data = $db->select()
             ->from(self::TABLE)
-            ->where('recipient_id', $userId)
-            ->andWhere('status', 1)
+            ->where('sender_id', $userId)
+            ->orWhere('recipient_id', $userId)
             ->get();
         $messages = [];
-
         foreach ($data as $element){
             $message = new Message();
             $message->load((int)$element['id']);
             $messages[] = $message;
         }
+        return $messages;
 
+    }
+
+    public static function getUserMessagesWithFriend(int $friendId): array
+    {
+        $db = new DBHelper();
+        $userId = $_SESSION['user_id'];
+        $data = $db->select()
+            ->from(self::TABLE)
+            ->where('sender_id', $userId)
+            ->andWhere('recipient_id', $friendId)
+            ->orWhere('recipient_id', $userId)
+            ->andWhere('sender_id', $friendId )
+            ->get();
+        $messages = [];
+        foreach ($data as $element){
+            $message = new Message();
+            $message->load((int)$element['id']);
+            $messages[] = $message;
+        }
         return $messages;
     }
 
-
-
-    public static function countNewMessages(int $userId): int
+    public static function makeSeen(int $senderId, int $recipientId): void
     {
         $db = new DBHelper();
-        $rez = $db->select('count(*)')
-            ->from(self::TABLE)
-            ->where('recipient_id', $userId)
-            ->andWhere('status', 0)
-            ->get();
-        return (int)$rez[0][0];
+        $db->update(self::TABLE, ['seen' => 1])
+            ->where('sender_id', $senderId)
+            ->andWhere('recipient_id', $recipientId)
+            ->andWhere('seen', 0)->exec();
     }
-
 
 
 }

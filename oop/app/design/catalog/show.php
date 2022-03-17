@@ -1,6 +1,13 @@
 <?php $ad = $this->data['ad']; ?>
-<div class="wrapper">
+<div class="wrapper" xmlns="http://www.w3.org/1999/html">
     <h1><?= $ad->getTitle(); ?></h1>
+<!--    --><?php //if ($this->isUserLoged()): ?>
+    <form action="<?= $this->url('catalog/favorite') ?>" method="POST">
+        <?php $label = $this->data['saved_ad'] == null ? 'Isiminti' : 'Pamirsti'; ?>
+        <input type="hidden" value="<?= $ad->getId(); ?>" name="ad_id">
+        <input type="submit" value="<?= $label ?>" name="save">
+    </form>
+<!--    --><?php //endif; ?>
     <div class="image-wrapper">
         <img width="600" src="<?= $ad->getImage() ?>">
     </div>
@@ -19,6 +26,7 @@
     </div>
 
 </div>
+
 <div class="comment-wrapper">
 
     <div>
@@ -36,17 +44,32 @@
 
             <br>
 
-
         </div>
 
     <?php endforeach; ?>
 
-    <div class="create-message">
-        <a href="<?= $this->url('message/send', $ad->getUser()->getNickName())?>" ><h4>Create new message</h4></a>
+    <span>Skelbimo ivertinimas(<?= $this->data['rating_count'] ?>):</span>
+    <?= $this->data['ad_rating'] ?>
+    <?php if ($this->isUserLogged()): ?>
+
+        <form action="<?= $this->url('catalog/rate') ?>" method="POST">
+            <input type="hidden" name="ad_id" value="<?= $ad->getId(); ?>">
+            <input type="radio" value="1" name="rate">
+            <input type="radio" value="2" name="rate">
+            <input type="radio" value="3" name="rate">
+            <input type="radio" value="4" name="rate">
+            <input type="radio" value="5" name="rate">
+            <br>
+            <input type="submit" value="Ivertinimas" name="ratings">
+        </form>
+        <a href="<?= $this->url('message/chat/' . $ad->getUserId()) ?>">
+            <br>
+            Rasyti zinute savininkui
+        </a>
+
+    <?php endif; ?>
 
 
-
-    </div>
 
 </div>
 

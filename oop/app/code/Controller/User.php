@@ -9,6 +9,7 @@ use Helper\FormHelper;
 use Helper\Validator;
 use Helper\Url;
 use Model\City;
+use Model\SavedAd;
 use Model\User as UserModel;
 use Core\AbstractController;
 class User extends AbstractController implements ControllerInterface
@@ -248,6 +249,12 @@ class User extends AbstractController implements ControllerInterface
     {
         session_destroy();
         Url::redirect('');
+    }
+
+    public function favorite(): void
+    {
+        $this->data['list'] = SavedAd::getUsersFavoriteAds((int)$_SESSION['user_id']);
+        $this->render('user/favorite');
     }
 
 
