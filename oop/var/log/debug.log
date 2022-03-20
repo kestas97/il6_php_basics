@@ -22730,3 +22730,1707 @@
 )
 
 2022/03/17 21:52:10 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 12:05:49 SELECT *  FROM saved_ads  WHERE user_id="0"
+2022/03/20 12:05:53 SELECT *  FROM saved_ads  WHERE user_id="0"
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE active="1" ORDER BY views DESC LIMIT 5
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 12:05:54 1belekas
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 12:05:54 1belekas
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE id="21"
+2022/03/20 12:05:54 1belekas
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 12:05:54 1belekas
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 12:05:54 1belekas
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE active="1" ORDER BY created_at ASC LIMIT 5
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE id="14"
+2022/03/20 12:05:54 1belekas
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 12:05:54 1belekas
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 12:05:54 1belekas
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 12:05:54 1belekas
+2022/03/20 12:05:54 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 12:05:54 1belekas
+2022/03/20 12:06:03 SELECT id  FROM users  WHERE email="testas1@gmail.com" AND password="3eaa48ac62432ddc080485d9764d43b6"
+2022/03/20 12:06:03 SELECT *  FROM users  WHERE id="24"
+2022/03/20 12:06:03 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 12:06:04 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 12:06:04 Location: http://localhost/pamokos/oop/pub/index.php//
+2022/03/20 12:06:04 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE active="1" ORDER BY views DESC LIMIT 5
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 12:06:04 1belekas
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 12:06:04 1belekas
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE id="21"
+2022/03/20 12:06:04 1belekas
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 12:06:04 1belekas
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 12:06:04 1belekas
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE active="1" ORDER BY created_at ASC LIMIT 5
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE id="14"
+2022/03/20 12:06:04 1belekas
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 12:06:04 1belekas
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 12:06:04 1belekas
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 12:06:04 1belekas
+2022/03/20 12:06:04 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 12:06:04 1belekas
+2022/03/20 12:06:04 SELECT *  FROM users  WHERE id="24"
+2022/03/20 12:06:04 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 12:06:04 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 12:06:06 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 12:06:06 SELECT *  FROM ads  WHERE slug="80audi123"
+2022/03/20 12:06:06 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 12:06:06 1belekas
+2022/03/20 12:06:06 SELECT *  FROM rating  WHERE user_id="24" AND ad_id="12"
+2022/03/20 12:06:06 SELECT *  FROM rating  WHERE id="1"
+2022/03/20 12:06:06 SELECT *  FROM saved_ads  WHERE user_id="24" AND ad_id="12"
+2022/03/20 12:06:06 SELECT *  FROM saved_ads  WHERE id="7"
+2022/03/20 12:06:06 SELECT *  FROM rating  WHERE ad_id="12"
+2022/03/20 12:06:06 update
+2022/03/20 12:06:06  UPDATE ads SET title = 'Audi 90',description = 'Super masina',manufacturer_id = '1',model_id = '1',price = '1000',year = '1990',type_id = '1',user_id = '23',image = 'https://autoplius-img.dgn.lt/ann_3_211878356/bmw-x5-3-0-l-visureigis-2003-dyzelinas-0.jpg',active = '1',slug = '80audi123',views = '117' WHERE id="12"
+2022/03/20 12:06:07 SELECT *  FROM comments  WHERE ad_id="12" ORDER BY created_at DESC
+2022/03/20 12:06:07 Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [0] => 4
+            [comment] => gera
+            [1] => gera
+            [user_id] => 23
+            [2] => 23
+            [ad_id] => 12
+            [3] => 12
+            [created_at] => 2022-03-02 23:59:11
+            [4] => 2022-03-02 23:59:11
+        )
+
+    [1] => Array
+        (
+            [id] => 3
+            [0] => 3
+            [comment] => gera masina
+            [1] => gera masina
+            [user_id] => 23
+            [2] => 23
+            [ad_id] => 12
+            [3] => 12
+            [created_at] => 2022-03-02 20:56:03
+            [4] => 2022-03-02 20:56:03
+        )
+
+)
+
+2022/03/20 12:06:07 SELECT *  FROM comments  WHERE id="4"
+2022/03/20 12:06:07 Model\Comment Object
+(
+    [comment:Model\Comment:private] => gera
+    [userId:Model\Comment:private] => 23
+    [adId:Model\Comment:private] => 12
+    [createdAt:Model\Comment:private] => 2022-03-02 23:59:11
+)
+
+2022/03/20 12:06:07 4
+2022/03/20 12:06:07 SELECT *  FROM comments  WHERE id="3"
+2022/03/20 12:06:07 Model\Comment Object
+(
+    [comment:Model\Comment:private] => gera masina
+    [userId:Model\Comment:private] => 23
+    [adId:Model\Comment:private] => 12
+    [createdAt:Model\Comment:private] => 2022-03-02 20:56:03
+)
+
+2022/03/20 12:06:07 3
+2022/03/20 12:06:07 Array
+(
+    [0] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => gera
+            [userId:Model\Comment:private] => 23
+            [adId:Model\Comment:private] => 12
+            [createdAt:Model\Comment:private] => 2022-03-02 23:59:11
+        )
+
+    [1] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => gera masina
+            [userId:Model\Comment:private] => 23
+            [adId:Model\Comment:private] => 12
+            [createdAt:Model\Comment:private] => 2022-03-02 20:56:03
+        )
+
+)
+
+2022/03/20 12:06:07 SELECT *  FROM users  WHERE id="24"
+2022/03/20 12:06:07 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 12:06:07 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 12:06:07 SELECT *  FROM users  WHERE id="23"
+2022/03/20 12:06:07 Array
+(
+    [id] => 23
+    [0] => 23
+    [nick_name] => a11
+    [1] => a11
+    [name] => Kestas
+    [2] => Kestas
+    [last_name] => sukys
+    [3] => sukys
+    [email] => a11@gmail.com
+    [4] => a11@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37067946265
+    [6] => +37067946265
+    [city_id] => 4
+    [7] => 4
+    [created_at] => 2022-02-08 20:03:19
+    [8] => 2022-02-08 20:03:19
+    [active] => 1
+    [9] => 1
+    [role_id] => 1
+    [10] => 1
+)
+
+2022/03/20 12:06:07 SELECT *  FROM cities  WHERE id="4"
+2022/03/20 12:06:07 SELECT *  FROM users  WHERE id="23"
+2022/03/20 12:06:07 Array
+(
+    [id] => 23
+    [0] => 23
+    [nick_name] => a11
+    [1] => a11
+    [name] => Kestas
+    [2] => Kestas
+    [last_name] => sukys
+    [3] => sukys
+    [email] => a11@gmail.com
+    [4] => a11@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37067946265
+    [6] => +37067946265
+    [city_id] => 4
+    [7] => 4
+    [created_at] => 2022-02-08 20:03:19
+    [8] => 2022-02-08 20:03:19
+    [active] => 1
+    [9] => 1
+    [role_id] => 1
+    [10] => 1
+)
+
+2022/03/20 12:06:07 SELECT *  FROM cities  WHERE id="4"
+2022/03/20 12:06:07 SELECT *  FROM users  WHERE id="23"
+2022/03/20 12:06:07 Array
+(
+    [id] => 23
+    [0] => 23
+    [nick_name] => a11
+    [1] => a11
+    [name] => Kestas
+    [2] => Kestas
+    [last_name] => sukys
+    [3] => sukys
+    [email] => a11@gmail.com
+    [4] => a11@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37067946265
+    [6] => +37067946265
+    [city_id] => 4
+    [7] => 4
+    [created_at] => 2022-02-08 20:03:19
+    [8] => 2022-02-08 20:03:19
+    [active] => 1
+    [9] => 1
+    [role_id] => 1
+    [10] => 1
+)
+
+2022/03/20 12:06:07 SELECT *  FROM cities  WHERE id="4"
+2022/03/20 12:06:07 SELECT *  FROM users  WHERE id="23"
+2022/03/20 12:06:07 Array
+(
+    [id] => 23
+    [0] => 23
+    [nick_name] => a11
+    [1] => a11
+    [name] => Kestas
+    [2] => Kestas
+    [last_name] => sukys
+    [3] => sukys
+    [email] => a11@gmail.com
+    [4] => a11@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37067946265
+    [6] => +37067946265
+    [city_id] => 4
+    [7] => 4
+    [created_at] => 2022-02-08 20:03:19
+    [8] => 2022-02-08 20:03:19
+    [active] => 1
+    [9] => 1
+    [role_id] => 1
+    [10] => 1
+)
+
+2022/03/20 12:06:07 SELECT *  FROM cities  WHERE id="4"
+2022/03/20 12:06:10 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE active="1" ORDER BY views DESC LIMIT 5
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 12:06:10 1belekas
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 12:06:10 1belekas
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE id="21"
+2022/03/20 12:06:10 1belekas
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 12:06:10 1belekas
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 12:06:10 1belekas
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE active="1" ORDER BY created_at ASC LIMIT 5
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE id="14"
+2022/03/20 12:06:10 1belekas
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 12:06:10 1belekas
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 12:06:10 1belekas
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 12:06:10 1belekas
+2022/03/20 12:06:10 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 12:06:10 1belekas
+2022/03/20 12:06:10 SELECT *  FROM users  WHERE id="24"
+2022/03/20 12:06:10 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 12:06:10 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 12:06:12 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 12:06:12 SELECT *  FROM ads  WHERE slug="ford-mustang"
+2022/03/20 12:06:12 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 12:06:12 1belekas
+2022/03/20 12:06:12 SELECT *  FROM rating  WHERE user_id="24" AND ad_id="16"
+2022/03/20 12:06:12 SELECT *  FROM rating  WHERE id="4"
+2022/03/20 12:06:12 SELECT *  FROM saved_ads  WHERE user_id="24" AND ad_id="16"
+2022/03/20 12:06:12 SELECT *  FROM rating  WHERE ad_id="16"
+2022/03/20 12:06:12 update
+2022/03/20 12:06:12  UPDATE ads SET title = 'Ford Mustang',description = 'Fordas',manufacturer_id = '1',model_id = '1',price = '2000',year = '2022',type_id = '1',user_id = '23',image = 'https://img.autogidas.lt/4_15_213194086/ford-mustang-kabrioletas-2014.jpg',active = '1',slug = 'ford-mustang',views = '18' WHERE id="16"
+2022/03/20 12:06:12 SELECT *  FROM comments  WHERE ad_id="16" ORDER BY created_at DESC
+2022/03/20 12:06:12 Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [comment] => Kur nuotrauka
+            [1] => Kur nuotrauka
+            [user_id] => 24
+            [2] => 24
+            [ad_id] => 16
+            [3] => 16
+            [created_at] => 2022-03-15 20:26:42
+            [4] => 2022-03-15 20:26:42
+        )
+
+)
+
+2022/03/20 12:06:12 SELECT *  FROM comments  WHERE id="7"
+2022/03/20 12:06:12 Model\Comment Object
+(
+    [comment:Model\Comment:private] => Kur nuotrauka
+    [userId:Model\Comment:private] => 24
+    [adId:Model\Comment:private] => 16
+    [createdAt:Model\Comment:private] => 2022-03-15 20:26:42
+)
+
+2022/03/20 12:06:12 7
+2022/03/20 12:06:12 Array
+(
+    [0] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => Kur nuotrauka
+            [userId:Model\Comment:private] => 24
+            [adId:Model\Comment:private] => 16
+            [createdAt:Model\Comment:private] => 2022-03-15 20:26:42
+        )
+
+)
+
+2022/03/20 12:06:12 SELECT *  FROM users  WHERE id="24"
+2022/03/20 12:06:12 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 12:06:12 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 12:06:12 SELECT *  FROM users  WHERE id="24"
+2022/03/20 12:06:12 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 12:06:13 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 12:06:13 SELECT *  FROM users  WHERE id="24"
+2022/03/20 12:06:13 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 12:06:13 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 12:06:14 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 12:06:15 SELECT *  FROM saved_ads  WHERE user_id="24" AND ad_id="16"
+2022/03/20 12:06:15 INSERT INTO saved_ads (ad_id, user_id) VALUES ('16', '24')
+2022/03/20 12:06:15 create
+2022/03/20 12:06:15 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 12:06:15 1belekas
+2022/03/20 12:06:15 Location: http://localhost/pamokos/oop/pub/index.php/catalog/show/ford-mustang
+2022/03/20 12:06:15 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 12:06:15 SELECT *  FROM ads  WHERE slug="ford-mustang"
+2022/03/20 12:06:15 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 12:06:15 1belekas
+2022/03/20 12:06:15 SELECT *  FROM rating  WHERE user_id="24" AND ad_id="16"
+2022/03/20 12:06:15 SELECT *  FROM rating  WHERE id="4"
+2022/03/20 12:06:15 SELECT *  FROM saved_ads  WHERE user_id="24" AND ad_id="16"
+2022/03/20 12:06:15 SELECT *  FROM saved_ads  WHERE id="13"
+2022/03/20 12:06:15 SELECT *  FROM rating  WHERE ad_id="16"
+2022/03/20 12:06:15 update
+2022/03/20 12:06:15  UPDATE ads SET title = 'Ford Mustang',description = 'Fordas',manufacturer_id = '1',model_id = '1',price = '2000',year = '2022',type_id = '1',user_id = '23',image = 'https://img.autogidas.lt/4_15_213194086/ford-mustang-kabrioletas-2014.jpg',active = '1',slug = 'ford-mustang',views = '19' WHERE id="16"
+2022/03/20 12:06:15 SELECT *  FROM comments  WHERE ad_id="16" ORDER BY created_at DESC
+2022/03/20 12:06:15 Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [comment] => Kur nuotrauka
+            [1] => Kur nuotrauka
+            [user_id] => 24
+            [2] => 24
+            [ad_id] => 16
+            [3] => 16
+            [created_at] => 2022-03-15 20:26:42
+            [4] => 2022-03-15 20:26:42
+        )
+
+)
+
+2022/03/20 12:06:15 SELECT *  FROM comments  WHERE id="7"
+2022/03/20 12:06:15 Model\Comment Object
+(
+    [comment:Model\Comment:private] => Kur nuotrauka
+    [userId:Model\Comment:private] => 24
+    [adId:Model\Comment:private] => 16
+    [createdAt:Model\Comment:private] => 2022-03-15 20:26:42
+)
+
+2022/03/20 12:06:15 7
+2022/03/20 12:06:15 Array
+(
+    [0] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => Kur nuotrauka
+            [userId:Model\Comment:private] => 24
+            [adId:Model\Comment:private] => 16
+            [createdAt:Model\Comment:private] => 2022-03-15 20:26:42
+        )
+
+)
+
+2022/03/20 12:06:15 SELECT *  FROM users  WHERE id="24"
+2022/03/20 12:06:15 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 12:06:15 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 12:06:15 SELECT *  FROM users  WHERE id="24"
+2022/03/20 12:06:15 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 12:06:15 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 12:06:15 SELECT *  FROM users  WHERE id="24"
+2022/03/20 12:06:15 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 12:06:15 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 12:49:18 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 12:49:18 SELECT *  FROM users  WHERE id="24"
+2022/03/20 12:49:18 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 12:49:18 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:32:05 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:32:05 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:32:05 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:32:05 1belekas
+2022/03/20 13:32:05 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:32:05 1belekas
+2022/03/20 13:32:05 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:32:05 1belekas
+2022/03/20 13:32:05 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:32:05 1belekas
+2022/03/20 13:32:05 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:32:05 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:32:05 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:32:26 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:32:26 SELECT *  FROM ads  WHERE slug="ford-mustang"
+2022/03/20 13:32:26 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:32:26 1belekas
+2022/03/20 13:32:26 SELECT *  FROM rating  WHERE user_id="24" AND ad_id="16"
+2022/03/20 13:32:26 SELECT *  FROM rating  WHERE id="4"
+2022/03/20 13:32:26 SELECT *  FROM saved_ads  WHERE user_id="24" AND ad_id="16"
+2022/03/20 13:32:26 SELECT *  FROM saved_ads  WHERE id="13"
+2022/03/20 13:32:26 SELECT *  FROM rating  WHERE ad_id="16"
+2022/03/20 13:32:26 update
+2022/03/20 13:32:26  UPDATE ads SET title = 'Ford Mustang',description = 'Fordas',manufacturer_id = '1',model_id = '1',price = '2000',year = '2022',type_id = '1',user_id = '23',image = 'https://img.autogidas.lt/4_15_213194086/ford-mustang-kabrioletas-2014.jpg',active = '1',slug = 'ford-mustang',views = '20' WHERE id="16"
+2022/03/20 13:32:26 SELECT *  FROM comments  WHERE ad_id="16" ORDER BY created_at DESC
+2022/03/20 13:32:26 Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [comment] => Kur nuotrauka
+            [1] => Kur nuotrauka
+            [user_id] => 24
+            [2] => 24
+            [ad_id] => 16
+            [3] => 16
+            [created_at] => 2022-03-15 20:26:42
+            [4] => 2022-03-15 20:26:42
+        )
+
+)
+
+2022/03/20 13:32:26 SELECT *  FROM comments  WHERE id="7"
+2022/03/20 13:32:26 Model\Comment Object
+(
+    [comment:Model\Comment:private] => Kur nuotrauka
+    [userId:Model\Comment:private] => 24
+    [adId:Model\Comment:private] => 16
+    [createdAt:Model\Comment:private] => 2022-03-15 20:26:42
+)
+
+2022/03/20 13:32:26 7
+2022/03/20 13:32:26 Array
+(
+    [0] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => Kur nuotrauka
+            [userId:Model\Comment:private] => 24
+            [adId:Model\Comment:private] => 16
+            [createdAt:Model\Comment:private] => 2022-03-15 20:26:42
+        )
+
+)
+
+2022/03/20 13:32:26 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:32:26 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:32:26 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:32:26 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:32:26 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:32:26 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:32:26 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:32:26 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:32:26 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:32:33 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:32:33 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:32:33 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:32:33 1belekas
+2022/03/20 13:32:33 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:32:33 1belekas
+2022/03/20 13:32:33 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:32:33 1belekas
+2022/03/20 13:32:33 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:32:33 1belekas
+2022/03/20 13:32:33 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:32:33 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:32:33 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:37:50 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:37:50 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:37:50 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:37:50 1belekas
+2022/03/20 13:37:50 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:37:50 1belekas
+2022/03/20 13:37:50 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:37:50 1belekas
+2022/03/20 13:37:50 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:37:50 1belekas
+2022/03/20 13:37:50 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:37:50 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:37:50 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:37:52 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:37:52 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:37:52 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:37:52 1belekas
+2022/03/20 13:37:52 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:37:52 1belekas
+2022/03/20 13:37:52 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:37:52 1belekas
+2022/03/20 13:37:52 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:37:52 1belekas
+2022/03/20 13:37:52 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:37:52 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:37:52 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:41:00 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:41:00 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:41:00 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:41:00 1belekas
+2022/03/20 13:41:00 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:41:00 1belekas
+2022/03/20 13:41:00 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:41:00 1belekas
+2022/03/20 13:41:00 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:41:00 1belekas
+2022/03/20 13:41:00 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:41:00 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:41:00 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:41:03 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:41:03 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:41:03 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:41:03 1belekas
+2022/03/20 13:41:03 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:41:03 1belekas
+2022/03/20 13:41:03 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:41:03 1belekas
+2022/03/20 13:41:03 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:41:03 1belekas
+2022/03/20 13:41:03 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:41:03 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:41:03 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:41:15 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:41:15 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:41:15 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:41:15 1belekas
+2022/03/20 13:41:15 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:41:15 1belekas
+2022/03/20 13:41:15 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:41:15 1belekas
+2022/03/20 13:41:15 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:41:15 1belekas
+2022/03/20 13:41:15 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:41:15 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:41:15 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:41:17 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:41:17 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:41:17 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:41:17 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:41:17 SELECT *  FROM cities 
+2022/03/20 13:41:17 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:41:17 SELECT *  FROM cities  WHERE id="2"
+2022/03/20 13:41:17 SELECT *  FROM cities  WHERE id="3"
+2022/03/20 13:41:17 SELECT *  FROM cities  WHERE id="4"
+2022/03/20 13:41:17 SELECT *  FROM cities  WHERE id="5"
+2022/03/20 13:41:17 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:41:17 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:41:17 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:41:19 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:41:19 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:41:19 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:41:19 1belekas
+2022/03/20 13:41:19 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:41:19 1belekas
+2022/03/20 13:41:19 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:41:19 1belekas
+2022/03/20 13:41:19 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:41:19 1belekas
+2022/03/20 13:41:19 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:41:19 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:41:19 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:43:48 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:43:48 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:43:48 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:43:48 1belekas
+2022/03/20 13:43:48 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:43:48 1belekas
+2022/03/20 13:43:48 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:43:48 1belekas
+2022/03/20 13:43:48 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:43:48 1belekas
+2022/03/20 13:43:48 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:43:48 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:43:48 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:43:49 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE active="1" ORDER BY views DESC LIMIT 5
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:43:49 1belekas
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:43:49 1belekas
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE id="21"
+2022/03/20 13:43:49 1belekas
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:43:49 1belekas
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:43:49 1belekas
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE active="1" ORDER BY created_at ASC LIMIT 5
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE id="14"
+2022/03/20 13:43:49 1belekas
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:43:49 1belekas
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:43:49 1belekas
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:43:49 1belekas
+2022/03/20 13:43:49 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:43:49 1belekas
+2022/03/20 13:43:49 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:43:49 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:43:49 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:43:51 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:43:51 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:43:51 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:43:51 1belekas
+2022/03/20 13:43:51 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:43:51 1belekas
+2022/03/20 13:43:51 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:43:51 1belekas
+2022/03/20 13:43:51 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:43:51 1belekas
+2022/03/20 13:43:51 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:43:51 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:43:51 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:46:38 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:46:38 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:46:38 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:46:38 1belekas
+2022/03/20 13:46:38 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:46:38 1belekas
+2022/03/20 13:46:38 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:46:38 1belekas
+2022/03/20 13:46:38 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:46:38 1belekas
+2022/03/20 13:46:38 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:46:38 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:46:38 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:46:50 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:46:50 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:46:50 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:46:50 1belekas
+2022/03/20 13:46:50 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:46:50 1belekas
+2022/03/20 13:46:50 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:46:50 1belekas
+2022/03/20 13:46:50 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:46:50 1belekas
+2022/03/20 13:46:50 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:46:50 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:46:50 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:46:56 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:46:56 SELECT *  FROM ads  WHERE slug="audi80123"
+2022/03/20 13:46:56 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:46:56 1belekas
+2022/03/20 13:46:56 SELECT *  FROM rating  WHERE user_id="24" AND ad_id="13"
+2022/03/20 13:46:56 SELECT *  FROM rating  WHERE id="2"
+2022/03/20 13:46:56 SELECT *  FROM saved_ads  WHERE user_id="24" AND ad_id="13"
+2022/03/20 13:46:57 SELECT *  FROM saved_ads  WHERE id="6"
+2022/03/20 13:46:57 SELECT *  FROM rating  WHERE ad_id="13"
+2022/03/20 13:46:57 update
+2022/03/20 13:46:57  UPDATE ads SET title = 'Audi 80',description = 'Seniuke',manufacturer_id = '1',model_id = '1',price = '2000',year = '1990',type_id = '1',user_id = '23',image = 'https://autoplius-img.dgn.lt/ann_3_211396626/audi-80-1-9-l-sedanas-1993-dyzelinas-0.jpg',active = '1',slug = 'audi80123',views = '39' WHERE id="13"
+2022/03/20 13:46:57 SELECT *  FROM comments  WHERE ad_id="13" ORDER BY created_at DESC
+2022/03/20 13:46:57 Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [comment] => Gera masina. Pigios dalys
+            [1] => Gera masina. Pigios dalys
+            [user_id] => 23
+            [2] => 23
+            [ad_id] => 13
+            [3] => 13
+            [created_at] => 2022-03-08 22:15:30
+            [4] => 2022-03-08 22:15:30
+        )
+
+)
+
+2022/03/20 13:46:57 SELECT *  FROM comments  WHERE id="5"
+2022/03/20 13:46:57 Model\Comment Object
+(
+    [comment:Model\Comment:private] => Gera masina. Pigios dalys
+    [userId:Model\Comment:private] => 23
+    [adId:Model\Comment:private] => 13
+    [createdAt:Model\Comment:private] => 2022-03-08 22:15:30
+)
+
+2022/03/20 13:46:57 5
+2022/03/20 13:46:57 Array
+(
+    [0] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => Gera masina. Pigios dalys
+            [userId:Model\Comment:private] => 23
+            [adId:Model\Comment:private] => 13
+            [createdAt:Model\Comment:private] => 2022-03-08 22:15:30
+        )
+
+)
+
+2022/03/20 13:46:57 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:46:57 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:46:57 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:46:57 SELECT *  FROM users  WHERE id="23"
+2022/03/20 13:46:57 Array
+(
+    [id] => 23
+    [0] => 23
+    [nick_name] => a11
+    [1] => a11
+    [name] => Kestas
+    [2] => Kestas
+    [last_name] => sukys
+    [3] => sukys
+    [email] => a11@gmail.com
+    [4] => a11@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37067946265
+    [6] => +37067946265
+    [city_id] => 4
+    [7] => 4
+    [created_at] => 2022-02-08 20:03:19
+    [8] => 2022-02-08 20:03:19
+    [active] => 1
+    [9] => 1
+    [role_id] => 1
+    [10] => 1
+)
+
+2022/03/20 13:46:57 SELECT *  FROM cities  WHERE id="4"
+2022/03/20 13:46:57 SELECT *  FROM users  WHERE id="23"
+2022/03/20 13:46:57 Array
+(
+    [id] => 23
+    [0] => 23
+    [nick_name] => a11
+    [1] => a11
+    [name] => Kestas
+    [2] => Kestas
+    [last_name] => sukys
+    [3] => sukys
+    [email] => a11@gmail.com
+    [4] => a11@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37067946265
+    [6] => +37067946265
+    [city_id] => 4
+    [7] => 4
+    [created_at] => 2022-02-08 20:03:19
+    [8] => 2022-02-08 20:03:19
+    [active] => 1
+    [9] => 1
+    [role_id] => 1
+    [10] => 1
+)
+
+2022/03/20 13:46:57 SELECT *  FROM cities  WHERE id="4"
+2022/03/20 13:46:58 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:46:58 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:46:58 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:46:58 1belekas
+2022/03/20 13:46:58 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:46:58 1belekas
+2022/03/20 13:46:58 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:46:58 1belekas
+2022/03/20 13:46:58 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:46:58 1belekas
+2022/03/20 13:46:58 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:46:58 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:46:58 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:46:59 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:46:59 SELECT *  FROM ads  WHERE slug="tesla"
+2022/03/20 13:46:59 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:46:59 1belekas
+2022/03/20 13:46:59 SELECT *  FROM rating  WHERE user_id="24" AND ad_id="15"
+2022/03/20 13:46:59 SELECT *  FROM rating  WHERE id="3"
+2022/03/20 13:46:59 SELECT *  FROM saved_ads  WHERE user_id="24" AND ad_id="15"
+2022/03/20 13:46:59 SELECT *  FROM saved_ads  WHERE id="12"
+2022/03/20 13:46:59 SELECT *  FROM rating  WHERE ad_id="15"
+2022/03/20 13:46:59 update
+2022/03/20 13:46:59  UPDATE ads SET title = 'Tesla',description = 'Elektra varoma',manufacturer_id = '1',model_id = '1',price = '2000',year = '2020',type_id = '1',user_id = '23',image = 'https://img.autogidas.lt/4_15_211688065/tesla-model-3-hecbekas-2019.jpg',active = '1',slug = 'tesla',views = '13' WHERE id="15"
+2022/03/20 13:46:59 SELECT *  FROM comments  WHERE ad_id="15" ORDER BY created_at DESC
+2022/03/20 13:46:59 Array
+(
+)
+
+2022/03/20 13:46:59 Array
+(
+)
+
+2022/03/20 13:46:59 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:46:59 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:46:59 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:47:01 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:47:01 SELECT *  FROM saved_ads  WHERE user_id="24"
+2022/03/20 13:47:01 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:47:01 1belekas
+2022/03/20 13:47:01 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:47:01 1belekas
+2022/03/20 13:47:01 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:47:01 1belekas
+2022/03/20 13:47:01 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:47:01 1belekas
+2022/03/20 13:47:01 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:47:01 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:47:01 SELECT *  FROM cities  WHERE id="1"
+2022/03/20 13:47:21 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE active="1" ORDER BY views DESC LIMIT 5
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:47:21 1belekas
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:47:21 1belekas
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE id="21"
+2022/03/20 13:47:21 1belekas
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:47:21 1belekas
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:47:21 1belekas
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE active="1" ORDER BY created_at ASC LIMIT 5
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE id="14"
+2022/03/20 13:47:21 1belekas
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE id="12"
+2022/03/20 13:47:21 1belekas
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE id="13"
+2022/03/20 13:47:21 1belekas
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE id="15"
+2022/03/20 13:47:21 1belekas
+2022/03/20 13:47:21 SELECT *  FROM ads  WHERE id="16"
+2022/03/20 13:47:21 1belekas
+2022/03/20 13:47:21 SELECT *  FROM users  WHERE id="24"
+2022/03/20 13:47:21 Array
+(
+    [id] => 24
+    [0] => 24
+    [nick_name] => testas1
+    [1] => testas1
+    [name] => Tomas
+    [2] => Tomas
+    [last_name] => Testas
+    [3] => Testas
+    [email] => testas1@gmail.com
+    [4] => testas1@gmail.com
+    [password] => 3eaa48ac62432ddc080485d9764d43b6
+    [5] => 3eaa48ac62432ddc080485d9764d43b6
+    [phone] => +37068899774
+    [6] => +37068899774
+    [city_id] => 1
+    [7] => 1
+    [created_at] => 2022-03-03 19:21:19
+    [8] => 2022-03-03 19:21:19
+    [active] => 
+    [9] => 
+    [role_id] => 0
+    [10] => 0
+)
+
+2022/03/20 13:47:21 SELECT *  FROM cities  WHERE id="1"
