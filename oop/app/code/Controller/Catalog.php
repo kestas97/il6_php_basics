@@ -218,13 +218,13 @@ class Catalog extends AbstractController implements ControllerInterface
 
             }
 
-//            if ($this->isUserLogged()){
+            if ($this->isUserLogged()){
                 $savedAd = new SavedAd();
                 $savedAd = $savedAd->loadByUserAndAd((int)$_SESSION['user_id'], $ad->getId());
                 $this->data['saved_ad'] = $savedAd;
 
 
-//            }
+            }
         }
 
         $ratings = Rating::getRatingsByAd($ad->getId());
