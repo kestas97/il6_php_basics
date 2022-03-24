@@ -12,6 +12,12 @@
                 </div>
 
             </a>
+            <?php if (isset($_SESSION['user_id'])) : ?>
+                <?php if ($_SESSION['user_id'] == $ad->getUserId()) : ?>
+                    <a href="<?= $this->url('catalog/edit', $ad->getId()) ?>">Edit</a>
+                    <br>
+                <?php endif; ?>
+            <?php endif; ?>
         </div>
 
     <?php endforeach; ?>

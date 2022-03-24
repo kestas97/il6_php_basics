@@ -228,7 +228,7 @@ class User extends AbstractController implements ControllerInterface
         }
     }
 
-    public function check(): void
+    public function check(): array
     {
         $email = $_POST['email'];
         $password = md5($_POST['password']);

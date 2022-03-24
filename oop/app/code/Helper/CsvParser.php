@@ -24,4 +24,18 @@ class CsvParser {
             return false;
         }
     }
+
+    public static function createCsv($csv, $array)
+    {
+        $file = fopen($csv, 'a');
+        $header = [];
+        foreach ($array[0] as $key => $value){
+            $header[] = $key;
+        }
+        fputcsv($file, $header);
+        foreach ($array as $element){
+            fputcsv($file, $element);
+        }
+
+    }
 }

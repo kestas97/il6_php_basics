@@ -265,7 +265,7 @@ class Ad extends AbstractModel implements ModelInterface
 
 
 
-    public function load(int $id): Ad
+    public function load(int $id): ?Ad
     {
         $db = new DBHelper();
         $ad = $db->select()->from(self::TABLE)->where('id', $id)->getOne();
@@ -286,7 +286,7 @@ class Ad extends AbstractModel implements ModelInterface
             $this->views = (int)$ad['views'];
         }
 
-        Logger::log($ad['active'] .'belekas');
+        //Logger::log($ad['active'] .'belekas');
         return $this;
 
     }

@@ -159,7 +159,7 @@ class User extends AbstractModel implements ModelInterface
     {
         $db = new DBHelper();
         $data = $db->select()->from(self::TABLE)->where('id', $id)->getOne();
-        Logger::log(print_r($data, true));
+        //Logger::log(print_r($data, true));
         $this->id = (int)$data['id'];
         //$this->nickName = $data['nick_name'];
         $this->name = $data['name'];
@@ -217,5 +217,18 @@ class User extends AbstractModel implements ModelInterface
         return (string)$data[0];
     }
 
+    //get saved ad all users id
+//    public static function getSavedAdUsersIds(int $adId): array
+//    {
+//        $users = SavedAd::getSavedAdUser($adId);
+//        $savedUsers = [];
+//        foreach ($users as $user){
+//            $savedUsers = new User((int)$user['user_id']);
+//            if ($savedUsers->isActive()){
+//                $savedUsers[] = $savedUsers->getId();
+//            }
+//        }
+//        return(array($savedUsers));
+//    }
 
 }

@@ -1,13 +1,13 @@
 <?php $ad = $this->data['ad']; ?>
 <div class="wrapper" xmlns="http://www.w3.org/1999/html">
     <h1><?= $ad->getTitle(); ?></h1>
-<!--    --><?php //if ($this->isUserLoged()): ?>
+    <?php if ($this->isUserLogged()): ?>
     <form action="<?= $this->url('catalog/favorite') ?>" method="POST">
         <?php $label = $this->data['saved_ad'] == null ? 'Isiminti' : 'Pamirsti'; ?>
         <input type="hidden" value="<?= $ad->getId(); ?>" name="ad_id">
         <input type="submit" value="<?= $label ?>" name="save">
     </form>
-<!--    --><?php //endif; ?>
+    <?php endif; ?>
     <div class="image-wrapper">
         <img width="600" src="<?= $ad->getImage() ?>">
     </div>

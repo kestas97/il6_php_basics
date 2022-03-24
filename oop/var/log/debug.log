@@ -1,0 +1,440 @@
+2022/03/24 22:10:24 SELECT *  FROM price_informer_queue  LIMIT 100
+2022/03/24 22:10:24 SELECT *  FROM users  WHERE id="24"
+2022/03/24 22:10:24 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:10:24 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:10:24 1belekas
+2022/03/24 22:10:24 no_id
+2022/03/24 22:11:47 SELECT *  FROM price_informer_queue  LIMIT 100
+2022/03/24 22:11:47 SELECT *  FROM users  WHERE id="24"
+2022/03/24 22:11:47 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:11:47 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:11:47 no_id
+2022/03/24 22:11:47 Array
+(
+    [sender_id] => 1
+    [recipient_id] => 24
+    [message] =>  Sveiki <a href=http://localhost/pamokos/oop/pub/index.php/catalog/show/80audi123>Nuoroda i skelbima</a> Tomas Automobilis Audi 90 pakeite kaina 
+    [seen] => 0
+)
+
+2022/03/24 22:11:47 INSERT INTO message (sender_id, recipient_id, message, seen) VALUES ('1', '24', ' Sveiki <a href=http://localhost/pamokos/oop/pub/index.php/catalog/show/80audi123>Nuoroda i skelbima</a> Tomas Automobilis Audi 90 pakeite kaina ', '0')
+2022/03/24 22:11:48 DELETE  FROM price_informer_queue  WHERE id="11"
+2022/03/24 22:11:48 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:11:48 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:11:48 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:11:48 no_id
+2022/03/24 22:11:48 Array
+(
+    [sender_id] => 1
+    [recipient_id] => 23
+    [message] =>  Sveiki <a href=http://localhost/pamokos/oop/pub/index.php/catalog/show/80audi123>Nuoroda i skelbima</a> Kestas Automobilis Audi 90 pakeite kaina 
+    [seen] => 0
+)
+
+2022/03/24 22:11:48 INSERT INTO message (sender_id, recipient_id, message, seen) VALUES ('1', '23', ' Sveiki <a href=http://localhost/pamokos/oop/pub/index.php/catalog/show/80audi123>Nuoroda i skelbima</a> Kestas Automobilis Audi 90 pakeite kaina ', '0')
+2022/03/24 22:11:48 DELETE  FROM price_informer_queue  WHERE id="12"
+2022/03/24 22:11:54 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/24 22:11:54 SELECT *  FROM message  WHERE sender_id="24" OR recipient_id="24"
+2022/03/24 22:11:54 no_id
+2022/03/24 22:11:54 SELECT *  FROM message  WHERE id="101"
+2022/03/24 22:11:54 no_id
+2022/03/24 22:11:54 SELECT *  FROM message  WHERE id="102"
+2022/03/24 22:11:54 no_id
+2022/03/24 22:11:54 SELECT *  FROM message  WHERE id="110"
+2022/03/24 22:11:54 no_id
+2022/03/24 22:11:54 SELECT *  FROM message  WHERE id="111"
+2022/03/24 22:11:54 no_id
+2022/03/24 22:11:54 SELECT *  FROM message  WHERE id="113"
+2022/03/24 22:11:54 no_id
+2022/03/24 22:11:54 SELECT *  FROM message  WHERE id="115"
+2022/03/24 22:11:54 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:11:54 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:11:54 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:11:54 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:11:54 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:11:54 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:11:54 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:11:54 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:11:54 SELECT *  FROM users  WHERE id="1"
+2022/03/24 22:11:54 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:11:54 SELECT *  FROM users  WHERE id="1"
+2022/03/24 22:11:54 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:11:54 SELECT *  FROM users  WHERE id="24"
+2022/03/24 22:11:54 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:11:59 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/24 22:11:59 SELECT *  FROM message  WHERE sender_id="24" AND recipient_id="1" OR recipient_id="24" AND sender_id="1"
+2022/03/24 22:11:59 no_id
+2022/03/24 22:11:59 SELECT *  FROM message  WHERE id="113"
+2022/03/24 22:11:59 no_id
+2022/03/24 22:11:59 SELECT *  FROM message  WHERE id="115"
+2022/03/24 22:11:59  UPDATE message SET seen = '1' WHERE sender_id="1" AND recipient_id="24" AND seen="0"
+2022/03/24 22:11:59 SELECT *  FROM users  WHERE id="24"
+2022/03/24 22:11:59 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:12:05 SELECT COUNT(*)  FROM message  WHERE recipient_id="24" AND seen="0"
+2022/03/24 22:12:05 SELECT *  FROM ads  WHERE slug="80audi123"
+2022/03/24 22:12:05 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:12:05 SELECT *  FROM rating  WHERE user_id="24" AND ad_id="12"
+2022/03/24 22:12:05 SELECT *  FROM rating  WHERE id="1"
+2022/03/24 22:12:05 SELECT *  FROM saved_ads  WHERE user_id="24" AND ad_id="12"
+2022/03/24 22:12:05 SELECT *  FROM saved_ads  WHERE id="7"
+2022/03/24 22:12:05 SELECT *  FROM rating  WHERE ad_id="12"
+2022/03/24 22:12:05  UPDATE ads SET title = 'Audi 90',description = 'Super masina',manufacturer_id = '1',model_id = '1',price = '2000',year = '1990',type_id = '1',user_id = '23',image = 'https://autoplius-img.dgn.lt/ann_3_211878356/bmw-x5-3-0-l-visureigis-2003-dyzelinas-0.jpg',active = '1',slug = '80audi123',views = '149' WHERE id="12"
+2022/03/24 22:12:05 SELECT *  FROM comments  WHERE ad_id="12" ORDER BY created_at DESC
+2022/03/24 22:12:05 Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [0] => 4
+            [comment] => gera
+            [1] => gera
+            [user_id] => 23
+            [2] => 23
+            [ad_id] => 12
+            [3] => 12
+            [created_at] => 2022-03-02 23:59:11
+            [4] => 2022-03-02 23:59:11
+        )
+
+    [1] => Array
+        (
+            [id] => 3
+            [0] => 3
+            [comment] => gera masina
+            [1] => gera masina
+            [user_id] => 23
+            [2] => 23
+            [ad_id] => 12
+            [3] => 12
+            [created_at] => 2022-03-02 20:56:03
+            [4] => 2022-03-02 20:56:03
+        )
+
+)
+
+2022/03/24 22:12:05 SELECT *  FROM comments  WHERE id="4"
+2022/03/24 22:12:05 Model\Comment Object
+(
+    [comment:Model\Comment:private] => gera
+    [userId:Model\Comment:private] => 23
+    [adId:Model\Comment:private] => 12
+    [createdAt:Model\Comment:private] => 2022-03-02 23:59:11
+)
+
+2022/03/24 22:12:05 4
+2022/03/24 22:12:05 SELECT *  FROM comments  WHERE id="3"
+2022/03/24 22:12:05 Model\Comment Object
+(
+    [comment:Model\Comment:private] => gera masina
+    [userId:Model\Comment:private] => 23
+    [adId:Model\Comment:private] => 12
+    [createdAt:Model\Comment:private] => 2022-03-02 20:56:03
+)
+
+2022/03/24 22:12:05 3
+2022/03/24 22:12:05 Array
+(
+    [0] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => gera
+            [userId:Model\Comment:private] => 23
+            [adId:Model\Comment:private] => 12
+            [createdAt:Model\Comment:private] => 2022-03-02 23:59:11
+        )
+
+    [1] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => gera masina
+            [userId:Model\Comment:private] => 23
+            [adId:Model\Comment:private] => 12
+            [createdAt:Model\Comment:private] => 2022-03-02 20:56:03
+        )
+
+)
+
+2022/03/24 22:12:05 SELECT *  FROM users  WHERE id="24"
+2022/03/24 22:12:05 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:12:05 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:12:05 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:12:05 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:12:05 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:12:05 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:12:05 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:12:05 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:12:05 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:12:58 SELECT COUNT(*)  FROM message  WHERE recipient_id="23" AND seen="0"
+2022/03/24 22:12:58 SELECT *  FROM message  WHERE sender_id="23" OR recipient_id="23"
+2022/03/24 22:12:58 no_id
+2022/03/24 22:12:58 SELECT *  FROM message  WHERE id="101"
+2022/03/24 22:12:58 no_id
+2022/03/24 22:12:58 SELECT *  FROM message  WHERE id="102"
+2022/03/24 22:12:58 no_id
+2022/03/24 22:12:58 SELECT *  FROM message  WHERE id="110"
+2022/03/24 22:12:58 no_id
+2022/03/24 22:12:58 SELECT *  FROM message  WHERE id="111"
+2022/03/24 22:12:58 no_id
+2022/03/24 22:12:58 SELECT *  FROM message  WHERE id="112"
+2022/03/24 22:12:58 no_id
+2022/03/24 22:12:58 SELECT *  FROM message  WHERE id="114"
+2022/03/24 22:12:58 no_id
+2022/03/24 22:12:58 SELECT *  FROM message  WHERE id="116"
+2022/03/24 22:12:58 SELECT *  FROM users  WHERE id="24"
+2022/03/24 22:12:58 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:12:58 SELECT *  FROM users  WHERE id="24"
+2022/03/24 22:12:58 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:12:58 SELECT *  FROM users  WHERE id="24"
+2022/03/24 22:12:58 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:12:58 SELECT *  FROM users  WHERE id="24"
+2022/03/24 22:12:58 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:12:58 SELECT *  FROM users  WHERE id="1"
+2022/03/24 22:12:58 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:12:58 SELECT *  FROM users  WHERE id="1"
+2022/03/24 22:12:58 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:12:58 SELECT *  FROM users  WHERE id="1"
+2022/03/24 22:12:58 SELECT *  FROM cities  WHERE id="1"
+2022/03/24 22:12:58 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:12:58 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:13:00 SELECT COUNT(*)  FROM message  WHERE recipient_id="23" AND seen="0"
+2022/03/24 22:13:00 Location: http://localhost/pamokos/oop/pub/index.php/
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE active="1" ORDER BY views DESC LIMIT 5
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE id="21"
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE id="16"
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE active="1" ORDER BY created_at ASC LIMIT 5
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE id="14"
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:13:00 SELECT *  FROM ads  WHERE id="16"
+2022/03/24 22:13:03 SELECT *  FROM ads  WHERE slug="80audi123"
+2022/03/24 22:13:03 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:13:03 SELECT *  FROM rating  WHERE ad_id="12"
+2022/03/24 22:13:03  UPDATE ads SET title = 'Audi 90',description = 'Super masina',manufacturer_id = '1',model_id = '1',price = '2000',year = '1990',type_id = '1',user_id = '23',image = 'https://autoplius-img.dgn.lt/ann_3_211878356/bmw-x5-3-0-l-visureigis-2003-dyzelinas-0.jpg',active = '1',slug = '80audi123',views = '150' WHERE id="12"
+2022/03/24 22:13:03 SELECT *  FROM comments  WHERE ad_id="12" ORDER BY created_at DESC
+2022/03/24 22:13:03 Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [0] => 4
+            [comment] => gera
+            [1] => gera
+            [user_id] => 23
+            [2] => 23
+            [ad_id] => 12
+            [3] => 12
+            [created_at] => 2022-03-02 23:59:11
+            [4] => 2022-03-02 23:59:11
+        )
+
+    [1] => Array
+        (
+            [id] => 3
+            [0] => 3
+            [comment] => gera masina
+            [1] => gera masina
+            [user_id] => 23
+            [2] => 23
+            [ad_id] => 12
+            [3] => 12
+            [created_at] => 2022-03-02 20:56:03
+            [4] => 2022-03-02 20:56:03
+        )
+
+)
+
+2022/03/24 22:13:03 SELECT *  FROM comments  WHERE id="4"
+2022/03/24 22:13:03 Model\Comment Object
+(
+    [comment:Model\Comment:private] => gera
+    [userId:Model\Comment:private] => 23
+    [adId:Model\Comment:private] => 12
+    [createdAt:Model\Comment:private] => 2022-03-02 23:59:11
+)
+
+2022/03/24 22:13:03 4
+2022/03/24 22:13:03 SELECT *  FROM comments  WHERE id="3"
+2022/03/24 22:13:03 Model\Comment Object
+(
+    [comment:Model\Comment:private] => gera masina
+    [userId:Model\Comment:private] => 23
+    [adId:Model\Comment:private] => 12
+    [createdAt:Model\Comment:private] => 2022-03-02 20:56:03
+)
+
+2022/03/24 22:13:03 3
+2022/03/24 22:13:03 Array
+(
+    [0] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => gera
+            [userId:Model\Comment:private] => 23
+            [adId:Model\Comment:private] => 12
+            [createdAt:Model\Comment:private] => 2022-03-02 23:59:11
+        )
+
+    [1] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => gera masina
+            [userId:Model\Comment:private] => 23
+            [adId:Model\Comment:private] => 12
+            [createdAt:Model\Comment:private] => 2022-03-02 20:56:03
+        )
+
+)
+
+2022/03/24 22:13:03 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:13:03 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:13:03 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:13:03 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:13:03 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:13:03 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:13:03 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:13:03 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:15:54 SELECT *  FROM ads  WHERE slug="80audi123"
+2022/03/24 22:15:55 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:15:55 SELECT *  FROM rating  WHERE ad_id="12"
+2022/03/24 22:15:55  UPDATE ads SET title = 'Audi 90',description = 'Super masina',manufacturer_id = '1',model_id = '1',price = '2000',year = '1990',type_id = '1',user_id = '23',image = 'https://autoplius-img.dgn.lt/ann_3_211878356/bmw-x5-3-0-l-visureigis-2003-dyzelinas-0.jpg',active = '1',slug = '80audi123',views = '151' WHERE id="12"
+2022/03/24 22:15:55 SELECT *  FROM comments  WHERE ad_id="12" ORDER BY created_at DESC
+2022/03/24 22:15:55 Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [0] => 4
+            [comment] => gera
+            [1] => gera
+            [user_id] => 23
+            [2] => 23
+            [ad_id] => 12
+            [3] => 12
+            [created_at] => 2022-03-02 23:59:11
+            [4] => 2022-03-02 23:59:11
+        )
+
+    [1] => Array
+        (
+            [id] => 3
+            [0] => 3
+            [comment] => gera masina
+            [1] => gera masina
+            [user_id] => 23
+            [2] => 23
+            [ad_id] => 12
+            [3] => 12
+            [created_at] => 2022-03-02 20:56:03
+            [4] => 2022-03-02 20:56:03
+        )
+
+)
+
+2022/03/24 22:15:55 SELECT *  FROM comments  WHERE id="4"
+2022/03/24 22:15:55 Model\Comment Object
+(
+    [comment:Model\Comment:private] => gera
+    [userId:Model\Comment:private] => 23
+    [adId:Model\Comment:private] => 12
+    [createdAt:Model\Comment:private] => 2022-03-02 23:59:11
+)
+
+2022/03/24 22:15:55 4
+2022/03/24 22:15:55 SELECT *  FROM comments  WHERE id="3"
+2022/03/24 22:15:55 Model\Comment Object
+(
+    [comment:Model\Comment:private] => gera masina
+    [userId:Model\Comment:private] => 23
+    [adId:Model\Comment:private] => 12
+    [createdAt:Model\Comment:private] => 2022-03-02 20:56:03
+)
+
+2022/03/24 22:15:55 3
+2022/03/24 22:15:55 Array
+(
+    [0] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => gera
+            [userId:Model\Comment:private] => 23
+            [adId:Model\Comment:private] => 12
+            [createdAt:Model\Comment:private] => 2022-03-02 23:59:11
+        )
+
+    [1] => Model\Comment Object
+        (
+            [comment:Model\Comment:private] => gera masina
+            [userId:Model\Comment:private] => 23
+            [adId:Model\Comment:private] => 12
+            [createdAt:Model\Comment:private] => 2022-03-02 20:56:03
+        )
+
+)
+
+2022/03/24 22:15:55 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:15:55 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:15:55 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:15:55 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:15:55 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:15:55 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:15:55 SELECT *  FROM users  WHERE id="23"
+2022/03/24 22:15:55 SELECT *  FROM cities  WHERE id="4"
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE active="1" ORDER BY views DESC LIMIT 5
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE id="21"
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE id="16"
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE active="1" ORDER BY created_at ASC LIMIT 5
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE id="14"
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:16:34 SELECT *  FROM ads  WHERE id="16"
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE active="1" ORDER BY views DESC LIMIT 5
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE id="21"
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE id="16"
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE active="1" ORDER BY created_at ASC LIMIT 5
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE id="14"
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:19:25 SELECT *  FROM ads  WHERE id="16"
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE active="1" ORDER BY views DESC LIMIT 5
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE id="21"
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE id="16"
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE active="1" ORDER BY created_at ASC LIMIT 5
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE id="14"
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:19:29 SELECT *  FROM ads  WHERE id="16"
+2022/03/24 22:19:33 SELECT *  FROM ads  WHERE active="1" ORDER BY views DESC LIMIT 5
+2022/03/24 22:19:33 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:19:33 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:19:33 SELECT *  FROM ads  WHERE id="21"
+2022/03/24 22:19:33 SELECT *  FROM ads  WHERE id="16"
+2022/03/24 22:19:33 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:19:33 SELECT *  FROM ads  WHERE active="1" ORDER BY created_at ASC LIMIT 5
+2022/03/24 22:19:34 SELECT *  FROM ads  WHERE id="14"
+2022/03/24 22:19:34 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:19:34 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:19:34 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:19:34 SELECT *  FROM ads  WHERE id="16"
+2022/03/24 22:20:17 SELECT *  FROM ads  WHERE active="1" ORDER BY views DESC LIMIT 5
+2022/03/24 22:20:17 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:20:17 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:20:18 SELECT *  FROM ads  WHERE id="21"
+2022/03/24 22:20:18 SELECT *  FROM ads  WHERE id="16"
+2022/03/24 22:20:18 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:20:18 SELECT *  FROM ads  WHERE active="1" ORDER BY created_at ASC LIMIT 5
+2022/03/24 22:20:18 SELECT *  FROM ads  WHERE id="14"
+2022/03/24 22:20:18 SELECT *  FROM ads  WHERE id="12"
+2022/03/24 22:20:18 SELECT *  FROM ads  WHERE id="13"
+2022/03/24 22:20:18 SELECT *  FROM ads  WHERE id="15"
+2022/03/24 22:20:18 SELECT *  FROM ads  WHERE id="16"

@@ -27,9 +27,9 @@ class AbstractModel
         $this->assignData();
         if (!isset($this->id)) {
             $this->create();
-            Logger::log('create');
+//            Logger::log('create');
         } else {
-            Logger::log('update');
+//            Logger::log('update');
             $this->update();
         }
     }

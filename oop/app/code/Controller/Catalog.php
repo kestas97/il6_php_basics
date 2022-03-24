@@ -14,6 +14,7 @@ use Model\Rating;
 use Model\SavedAd;
 use Model\User as UserModel;
 use Model\Rating as RatingModel;
+use Service\PriceChangeInformer\Messenger;
 
 class Catalog extends AbstractController implements ControllerInterface
 
@@ -87,15 +88,15 @@ class Catalog extends AbstractController implements ControllerInterface
 
     }
 
-    public function create()
+    public function create(): void
     {
-        $slug = Url::slug($_POST['title']);
+        $slug = Url::slug((string)$_POST['title']);
         while (!Ad::isValuelUnic('slug', $slug, 'ads')) {
             $slug = $slug . rand(0, 100);
         }
         $ad = new Ad();
-        $ad->setTitle($_POST['title']);
-        $ad->setDescription($_POST['description']);
+        $ad->setTitle((string)$_POST['title']);
+        $ad->setDescription((string)$_POST['description']);
         $ad->setManufacturerId(1);
         $ad->setModelId(1);
         $ad->setPrice((float)$_POST['price']);
@@ -117,7 +118,7 @@ class Catalog extends AbstractController implements ControllerInterface
             Url::redirect('');
         }
         $ad = new Ad();
-        $ad->load($id);
+        $ad->load((int)$id);
 
         if ($_SESSION['user_id'] != $ad->getUserId()) {
             Url::redirect('');
@@ -133,7 +134,7 @@ class Catalog extends AbstractController implements ControllerInterface
 
         $form->input([
             'name' => 'id',
-            'type' => 'hiden',
+            'type' => 'hidden',
             'value' => $ad->getId()
 
         ]);
@@ -166,24 +167,34 @@ class Catalog extends AbstractController implements ControllerInterface
         ]);
 
         $this->data['form'] = $form->getForm();
-        $this->render('catalog/create');
+        $this->render('catalog/adedit');
     }
 
     public function update(): void
     {
         $adId = $_POST['id'];
         $ad = new Ad((int)$_POST['id']);
+
         $ad->load((int)$adId);
+        if ($ad->getPrice() != $_POST['price']){
+            // isiusti zinute tam kas isimine
+            $messenger = new Messenger();
+            $messenger->setMessages($adId);
+
+        }
         $ad->setTitle($_POST['title']);
         $ad->setDescription($_POST['description']);
-        $ad->setManufacturerId((int)$_POST['manufacturer_id']);
-        $ad->setModelId((int)$_POST['model_id']);
+        $ad->setManufacturerId(1);
+        $ad->setModelId(1);
         $ad->setPrice((float)$_POST['price']);
         $ad->setYear((int)$_POST['year']);
-        $ad->setTypeId((int)$_POST['type_id']);
+        $ad->setTypeId(1);
         $ad->setImage($_POST['image']);
         $ad->save();
+        Url::redirect('catalog/show/' . $ad->getSlug());
     }
+
+
 
 
     public function show(string $slug): void
@@ -282,6 +293,7 @@ class Catalog extends AbstractController implements ControllerInterface
 
     public function rate(): void
     {
+
         $rate = new Rating();
         $rate->loadByUserAndAd((int)$_SESSION['user_id'], (int)$_POST['ad_id']);
         $rate->setUserId((int)$_SESSION['user_id']);
@@ -298,6 +310,7 @@ class Catalog extends AbstractController implements ControllerInterface
     public function favorite(): void
     {
         print_r($_POST);
+//        if ($this->isUserLogged())
         $adId = (int)$_POST['ad_id'];
         $savedAd = new SavedAd();
         $saved = $savedAd->loadByUserAndAd((int)$_SESSION['user_id'], $adId);

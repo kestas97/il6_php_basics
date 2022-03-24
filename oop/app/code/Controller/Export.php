@@ -3,24 +3,29 @@
 namespace Controller;
 
 use Core\AbstractController;
+use Helper\CsvParser;
 use Model\Ad;
 
 class Export extends AbstractController
 {
-    public function export()
-    {
+
+    public function exec(){
         $ads = Ad::getAllAds();
 
-        $file = fopen('../var/export/ads.csv', 'a');
-
-        //reikia headerio : kaip title, description...
-        fputcsv($file, $ads);
-        foreach ($file as $row){
-            fputcsv($file, $row);
+        $adsArray = [];
+        foreach ($ads as $key => $ad){
+            $adsArray[$key]['title'] = $ad->getTitle();
+            $adsArray[$key]['description'] = $ad->getDescription();
+            $adsArray[$key]['year'] = $ad->getYear();
+            $adsArray[$key]['price'] = $ad->getPrice();
+            $adsArray[$key]['image'] = $ad->getImage();
+            $adsArray[$key]['slug'] = $ad->getSlug();
+            $adsArray[$key]['views'] = $ad->getViews();
         }
-        fclose($file);
 
-
+        $csv = PROJECT_ROOT_DIR. '/var/export/ads.csv';
+        CsvParser::createCsv($csv, $adsArray);
 
     }
+
 }
