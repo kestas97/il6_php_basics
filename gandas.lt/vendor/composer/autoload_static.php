@@ -11,12 +11,20 @@ class ComposerStaticInit1b85341a6eb1795a62dafed797bc8938
         array (
             'Kestas\\GandasLt\\' => 16,
         ),
+        'A' => 
+        array (
+            'Aura\\SqlQuery\\' => 14,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Kestas\\GandasLt\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Aura\\SqlQuery\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/aura/sqlquery/src',
         ),
     );
 

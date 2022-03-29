@@ -13,5 +13,7 @@
             "email": "kestutissukys97@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "aura/sqlquery": "^2.7"
+    }
 }

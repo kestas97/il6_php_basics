@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Kestas\\GandasLt\\' => array($baseDir . '/src'),
+    'Aura\\SqlQuery\\' => array($vendorDir . '/aura/sqlquery/src'),
 );
