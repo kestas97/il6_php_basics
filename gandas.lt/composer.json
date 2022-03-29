@@ -1,0 +1,17 @@
+{
+    "name": "kestas/gandas.lt",
+    "description": "Naujienu portalas",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Kestas\\GandasLt\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "kestas97",
+            "email": "kestutissukys97@gmail.com"
+        }
+    ],
+    "require": {}
+}
