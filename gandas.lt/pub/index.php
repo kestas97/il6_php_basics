@@ -1,30 +1,18 @@
 <?php
 
-$allowedControllers = ['user', 'api'];
+include '../config.php';
+include '../vendor/autoload.php';
 
-if (isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] != '/'){
-    $pathInfo = strtolower(trim($_SERVER['PATH_INFO'], '/'));
-    $pathInfo = explode('/', $pathInfo);
-
-    $slug = isset($pathInfo[0]) ? $pathInfo[0] : null;
-    if (in_array($slug, $allowedControllers)){
-        $controller = $slug;
-        $method = $first = isset($pathInfo[1]) ? $pathInfo[1] : 'index';
-        $param = isset($pathInfo[2]) ? $pathInfo[2] : null;
-    }else{
-        $controller = 'news';
-        $method = 'show';
-        $param = $slug;
-
-    }
-
-
-
-
-}else{
-
-    $controller = 'Home';
-    $method = 'index';
-    $param = null;
-
+if (DEBUG_MODE) {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 }
+$router = new Core\Router();
+$launcher = new Core\Launcher();
+$launcher->start($router->getRouteInfo());
+
+
+
+
+
