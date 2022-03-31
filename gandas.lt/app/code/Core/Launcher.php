@@ -10,7 +10,7 @@ class Launcher
         list($controller, $method, $param) = $routeInfo;
         $controller = ucfirst($controller);
         $controller = '\Controller\\'.$controller;
-        $controllerObject = new $controller;
+        $controllerObject = new $controller();
         $controllerObject->$method($param);
     }
 }

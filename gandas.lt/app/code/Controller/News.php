@@ -2,12 +2,14 @@
 
 namespace Controller;
 
-class News
-{
-    public function show($slug)
-    {
-        echo 'Cia bus lokiga kuri uzkrovines straipsni';
-        echo $slug;
+use Core\ControllerAbstract;
 
+class News extends ControllerAbstract
+{
+    public function show(string $slug){
+        $new = new \Model\News();
+        $new->loadBySlug($slug);
+        echo $this->twig->render('news/single.html', ['new'=> $new]);
     }
+
 }

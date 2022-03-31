@@ -170,9 +170,27 @@ class News extends ModelAbstract
         $this->createdAt = $createdAt;
     }
 
-    public function loadBySlug($slug)
+    public function loadBySlug(string $slug): ?News
     {
-        $this->select()->from('news')->where('slug = :slug', ['slug' => $slug] );
+        $sql = $this->select();
+        $sql->cols(['*'])->from('news')->where('slug = :slug');
+        $sql->bindValue('slug', $slug);
+        if ($rez =$this->db->get($sql)){
+            $this->id = (int)$rez['id'];
+            $this->title = $rez['title'];
+            $this->content = $rez['content'];
+            $this->authorId = (int)$rez['author_id'];
+            $this->createdAt = $rez['created_at'];
+            $this->active = (int)$rez['active'];
+            $this->views = (int)$rez['views'];
+            $this->slug = $rez['slug'];
+            $this->image = $rez['image'];
+            return $this;
+
+
+        }else{
+            return null;
+        }
     }
 
 
