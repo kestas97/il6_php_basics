@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Index</h1>
+<p class="important">
+    {% for new in news %}
+    {{new.title}}
+    {% endfor %}
+</p>
+{% endblock %}

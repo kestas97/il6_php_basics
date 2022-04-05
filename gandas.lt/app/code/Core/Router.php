@@ -7,7 +7,7 @@ class Router
 
     public function getRouteInfo() : array
     {
-        $allowedControllers = ['user', 'api'];
+        $allowedControllers = ['users', 'api', 'news'];
 
         if(isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] != '/'){
             $pathInfo = strtolower(trim($_SERVER['PATH_INFO'],'/'));

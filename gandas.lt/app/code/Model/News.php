@@ -170,6 +170,29 @@ class News extends ModelAbstract
         $this->createdAt = $createdAt;
     }
 
+    public function load(int $id): ?News
+    {
+        $sql = $this->select();
+        $sql->cols(['*'])->from('news')->where('id = :id')->bindValue('id', $id);
+
+        if ($rez = $this->db->get($sql)) {
+            $this->id = (int)$rez['id'];
+            $this->title = $rez['title'];
+            $this->content = $rez['content'];
+            $this->authorId = (int)$rez['author_id'];
+            $this->createdAt = $rez['created_at'];
+            $this->active = (int)$rez['active'];
+            $this->views = (int)$rez['views'];
+            $this->slug = $rez['slug'];
+            $this->image = $rez['image'];
+            return $this;
+
+
+        } else {
+            return null;
+        }
+    }
+
     public function loadBySlug(string $slug): ?News
     {
         $sql = $this->select();
@@ -191,6 +214,11 @@ class News extends ModelAbstract
         }else{
             return null;
         }
+    }
+
+    public function getAllNews()
+    {
+
     }
 
 

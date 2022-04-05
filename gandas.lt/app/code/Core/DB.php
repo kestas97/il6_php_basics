@@ -26,5 +26,20 @@ class DB
         return $sth->fetch(\PDO::FETCH_ASSOC);
     }
 
+    public function getAll($sql)
+    {
+        $sth = $this->pdo->prepare($sql->getStatement());
+        $sth->execute($sql->getBindValues());
+        return $sth->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function execute($sql)
+    {
+        $sth = $this->pdo->prepare($sql->getStatement());
+        $sth->execute($sql->getBindValues());
+
+
+    }
+
 
 }

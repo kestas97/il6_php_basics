@@ -12,4 +12,14 @@ class News extends ControllerAbstract
         echo $this->twig->render('news/single.html', ['new'=> $new]);
     }
 
+    public function all()
+    {
+        $news = new \Model\Collections\News();
+        $news->filter('active', 1);
+
+
+
+        echo $this->twig->render('news/all.html', ['news'=> $news->get()]);
+    }
+
 }
